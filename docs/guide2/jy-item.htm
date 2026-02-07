@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获得物品</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>医书类</B>
+<BR><BR><B>子午针灸经:</B>薛慕华处，收他得到。 <BR><BR><B>华陀内昭图:</B>平一指处，收他得到。
+<BR><BR><B>胡青牛医书:</B>胡青牛处，收他得到。 <BR><BR><B>五毒秘传:</B>韦小宝处，用钱买。
+<BR><BR><B>毒经:</B>王难姑处，收她得到。 <BR><BR><B>药王神篇:</B>程灵素处，收她得到。
+<BR><BR><BR><B>内功类:</B> <BR><BR><B>紫霞秘笈:</B>华山派的箱子里，打开得到。
+<BR><BR><B>小无相功:</B>带虚竹上擂鼓山破棋局得到。 <BR><BR><B>十八泥偶:</B>石破天处，收他得到。
+<BR><BR><B>神照经:</B>狄云处，收他得到。 <BR><BR><B>易筋经:</B>游坦之处，收他得到。
+<BR><BR><B>洗髓经:</B>少林寺处，蒲团底下。 <BR><BR><BR><B>轻功类</B>
+<BR><BR><B>梯云纵心法:</B>张三丰处，和他过招得到。 <BR><BR><B>神行百变:</B>袁承志处，收他得到。
+<BR><BR><B>凌波微步:</B>带段誉到无量山洞得到。 <BR><BR><BR><B>拳掌类</B>
+<BR><BR><B>铁掌拳谱:</B>铁掌帮的箱子里，打开得到.　　 <BR><BR><B>七伤拳谱:</B>韦小宝处，用钱买。　　
+<BR><BR><B>天山六阳掌:</B>带虚竹上擂鼓山破棋局得到。　 <BR><BR><B>玄冥神掌:</B>燕子坞处，书柜中。　　
+<BR><BR><B>太极拳经:</B>张三丰处，和他过招得到。 <BR><BR><B>龙象般若功:</B>韦小宝处，用钱买。　
+<BR><BR><B>太玄经:</B>带石破天去侠客岛得到。（要带上赏善罚恶令） <BR><BR><B>黯然销魂掌:</B>杨过处（古墓里），收他得到。
+<BR><BR><B>降龙十八掌:</B>洪七公处，先要去成昆居拿小猪耳朵，灵蛇岛拿獐腿肉，万鳄岛拿小牛腰子，星宿海拿羊羔坐臀，云鹤崖拿兔肉，然后到海边小屋找林厨子做“玉笛谁家听落梅”这道菜，然后给洪七公，得到。
+<BR><BR><BR><B>吸取内力类</B> <BR><BR><B>北冥神功:</B>带段誉到无量山洞得到。
+<BR><BR><B>吸星大法:</B>梅庄地牢处，进入得到。 <BR><BR><B>神木王鼎:</B>阿紫处，收她得到。
+<BR><BR><BR><B>剑法类</B> <BR><BR><B>六脉神剑谱:</B>段誉处，收他得到。　　
+<BR><BR><B>松风剑谱:</B>福威镖局的箱子里，打开得到。　　　 <BR><BR><B>泰山十八盘:</B>泰山派处，打败天门道人得到。　　
+<BR><BR><B>回峰落雁剑法:</B>衡山派处，打败莫大得到。　
+<BR><BR><B>七星剑谱:</B>全真教处，被丘处机打败得到。前提是道德值要高，最好70以上。　　
+<BR><BR><B>两仪剑法:</B>韦小宝处，用钱买。　　 <BR><BR><B>金蛇秘笈:</B>金蛇洞的箱子里，打开得到。　　　
+<BR><BR><B>玉女素心剑法:</B>小龙女处，收她得到。　 <BR><BR><B>苗家剑法:</B>苗人凤处，至于如何得到，站长也不知道，欢迎大家讨论！
+<BR><BR><B>太极剑法:</B>张三丰处，和他过招得到。
+<BR><BR><B>达摩剑谱:</B>玄慈方丈处，道德值高（最好80以上），和他对话他会给你。 <BR><BR><B>玄铁剑法:</B>杨过处，收他得到。
+<BR><BR><B>辟邪剑谱:</B>林平之处，挑完青城派，在院里找到侯仁雄，对话后到福威镖局与林平之对话，完了出来又进去，再与之对话，收他得到。
+<BR><BR><B>独孤九剑:</B>带令狐冲上思过崖见风清杨得到。 <BR><BR><BR><B>刀法类</B>
+<BR><BR><B>血刀经:</B>狄云处，收他得到。　　　 <BR><BR><B>火焰刀法:</B>金轮寺的箱子里，打开得到。　　
+<BR><BR><B>反两仪刀法:</B>对不起！站长不知道，欢迎大家讨论！　
+<BR><BR><B>狂风刀法:</B>田伯光处，收他得到。　　 <BR><BR><B>胡家刀法:</B>胡斐处，收他得到。　　
+<BR><BR><B>霹雳刀法:</B>韦小宝处，用钱买。 <BR><BR><BR><B>其他类</B>
+<BR><BR><B>毒龙鞭法:</B>蓝凤凰处，收他得到。　　 <BR><BR><B>黄沙万里鞭法:</B>蜘蛛洞的箱子里，打开得到。
+<BR><BR><BR><B>暗器类</B> <BR><BR><B>满天花雨:</B>闯王宝藏的箱子里，打开得到。　
+<BR><BR><B>含沙射影:</B>蓝凤凰处，收他得到。 <BR><BR><B>霹雳秘笈:</B>霹雳堂处，与孔八拉对话得到。
+<BR><BR><BR><B>综合类</B>
+<BR><BR><B>左右互博之术:</B>老顽童处，先去黑龙潭对话，再到一灯居对话，又到黑龙潭对话，然后去百花谷对话，又去黑龙潭对话，最后到百花谷得到。　
+<BR><BR><B>乾坤大挪移:</B>明教分舵地洞里骷髅怀中，取出得到。　　 <BR><BR><B>葵花宝典:</B>任我行处，打败得到。　　
+<BR><BR><B>九阴真经:</B>古墓棺材中，打开得到。　　　 <BR><BR><B>九阳真经:</B>张无忌处，收他得到。
+<BR><BR><BR><B>武器护具:</B> <BR><BR><B>玄铁剑:</B>杨过处，收他得到。　　　
+<BR><BR><B>君子剑:</B>绝情谷的箱子里，打开得到。　　　 <BR><BR><B>淑女剑:</B>绝情谷的箱子里，打开得到。
+<BR><BR><B>真武剑:</B>武当派练功房的箱子里，打开得到。　　　 <BR><BR><B>倚天剑:</B>灭绝师太处，打死她，在她尸体上取得。　　　
+<BR><BR><B>金蛇剑:</B>金蛇洞的石头上，需要足够的内力拔出。　 <BR><BR><B>凝碧剑:</B>韦小宝处，用钱买。　　
+<BR><BR><B>白龙剑:</B>摩天崖的箱子里，打开得到。　　 <BR><BR><B>白虹剑:</B>雪山派的箱子里，打开得到。　　
+<BR><BR><B>周公剑:</B>韦小宝处，用钱买。　　 <BR><BR><B>血刀:</B>狄云处，收他得到。　　　　
+<BR><BR><B>冷月宝刀:</B>苗人凤处，打败得到。　　 <BR><BR><B>屠龙刀:</B>谢逊处，带成昆头颅找他对话得到。　　
+<BR><BR><B>绿波香霞刀:</B>韦小宝处，用钱买。　 <BR><BR><B>霹雳狂刀:</B>韦小宝处，用钱买。　
+<BR><BR><B>金丝背心:</B>闯王宝藏的箱子里，打开得到。　　 <BR><BR><B>乌蚕衣:</B>狄云处，收他得到。　　
+<BR><BR><B>鳄鱼护甲:</B>岳老三处，打败得到。
+    </div>
+</body>
+</html>

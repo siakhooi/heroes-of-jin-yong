@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>武工介绍</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>紫霞秘笈:</B>华山派修行内功之心法 <BR><BR><B>小无相功:</B>逍遥派之内功心法 
+<BR><BR><B>十八泥偶：</B>记载少林武功之泥偶，可练内力 <BR><BR><B>神照经：</B>学习内力之奥妙法门 
+<BR><BR><B>易筋经：</B>少林寺修行内功之无上心法 <BR><BR><B>洗髓经：</B>少林寺失传之内功宝典 
+<BR><BR><B>梯云纵心法：</B>武当派修行轻功之心法 <BR><BR><B>神行百变：</B>增加轻功能力的武功秘笈 
+<BR><BR><B>凌波微步：</B>逍遥派绝学，可增加轻功能力 <BR><BR><B>子午针灸经：</B>探讨穴道、经脉之医书 
+<BR><BR><B>华陀内昭图：</B>医学宝典 <BR><BR><B>胡青牛医书：</B>蝶谷医仙医术精华之记录 
+<BR><BR><B>五毒秘传：</B>五毒教秘笈，记载用毒解毒方法 <BR><BR><B>毒经：</B>毒仙王难姑所著之用毒宝典 
+<BR><BR><B>药王神篇：</B>毒手药王之毕生心血著作 <BR><BR><B>铁掌拳谱：</B>铁掌帮之扬名绝学 
+<BR><BR><B>七伤拳谱：</B>崆峒派之独门拳法 <BR><BR><B>天山六阳掌：</B>逍遥派之掌法秘笈 
+<BR><BR><B>玄冥神掌：</B>失传已久的武力绝学 <BR><BR><B>太极全经：</B>武当派之新创绝学，四两拨千斤 
+<BR><BR><B>龙象般若功：</B>密宗至高无上之护法神功 <BR><BR><B>太玄经：</B>无人可解之神秘武功 
+<BR><BR><B>黯然销魂掌：</B>杨过所创之强力掌法 <BR><BR><B>降龙十八掌：</B>丐帮镇帮之宝 
+<BR><BR><B>北冥神功：</B>逍遥派绝学，吸人能力化为己用 <BR><BR><B>吸星大法：</B>可吸敌人内力化为己用 
+<BR><BR><B>神木王鼎：</B>星宿海掌门练化功大法之物 <BR><BR><B>六脉神剑谱：</B>大理段家之超强剑气绝学 
+<BR><BR><B>松风剑法：</B>四川青城之剑法 <BR><BR><B>泰山十八盘剑谱：</B>泰山派高深之剑法 
+<BR><BR><B>回峰落雁剑谱：</B>衡山派千变万化之剑法 <BR><BR><B>太岳青峰剑谱：</B>华山岳不群独创之剑法 
+<BR><BR><B>两仪剑法：</B>昆仑派之独门绝学 <BR><BR><B>金蛇秘笈：</B>金蛇郎君观蛇时悟出之剑法 
+<BR><BR><B>玉女素心剑法：</B>古墓派轻巧之剑法 <BR><BR><B>苗家剑法：</B>苗人凤家传剑法 
+<BR><BR><B>太极剑法：</B>张三丰新创之剑法 <BR><BR><B>达摩剑谱：</B>少林七十二绝技之一 
+<BR><BR><B>玄铁剑法：</B>杨过悟于剑魔所留之秘笈 <BR><BR><B>辟邪剑谱：</B>剑法阴损毒辣，修习者断子绝孙 
+<BR><BR><B>独孤九剑：</B>独孤求败所创之高深剑法 <BR><BR><B>血刀经：</B>可修炼血刀刀法 
+<BR><BR><B>火焰刀法：</B>西域天轮寺刀法绝学 <BR><BR><B>反两仪刀法：</B>华山派武学 
+<BR><BR><B>狂风刀法：</B>速度极快之刀法 <BR><BR><B>胡家刀法：</B>胡一刀家传之刀谱 
+<BR><BR><B>霹雳刀法：</B>霹雳三绝中之刀谱 <BR><BR><B>毒龙鞭法：</B>轻盈灵巧，千变万化之鞭法 
+<BR><BR><B>黄沙万里鞭法：</B>相传至西域之鞭法 <BR><BR><B>满天花雨：</B>增加暗器能力 
+<BR><BR><B>霹雳秘笈：</B>霹雳三绝中之暗器总诀 <BR><BR><B>含沙射影：</B>五毒教之暗器总诀 
+<BR><BR><B>左右互博之术：</B>修习后攻击两次之机率增大 <BR><BR><B>乾坤大挪移：</B>明教宝典，修行后可增加防御力 
+<BR><BR><B>葵花宝典：</B>道家修行内功之无上心法 <BR><BR><B>九阴真经：</B>至高无上之武功宝典 
+<BR><BR><B>九阳真经：</B>至高无上之武功宝典
+    </div>
+</body>
+</html>

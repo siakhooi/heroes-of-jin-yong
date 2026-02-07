@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳完全攻略：十四天書攻略</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Coordinates styling */
+        .menu a[href^="item.html"], .content a[href^="item.html"] {
+            color: #98d98c;
+            font-family: monospace;
+            font-size: 0.95em;
+        }
+
+        .menu a[href^="item.html"]:hover, .content a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links */
+        .menu a[href^="char.html"], .content a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .menu a[href^="char.html"]:hover, .content a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links */
+        .menu a[href^="skill.html"], .content a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .menu a[href^="skill.html"]:hover, .content a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="book.html">十四天書攻略</a>
+            <a href="faq.html">常見問題集</a>
+            <a href="map.html">座標</a>
+            <a href="item.html">物品</a>
+            <a href="char.html">人物</a>
+            <a href="skill.html">武功</a>
+            <a href="drug.html">鍊丹</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <DIV class=title>
+<H2>十四天書攻略</H2>
+<P><A href="book.html#booka">飛</A><A
+href="book.html#bookb">雪</A><A
+href="book.html#bookc">連</A><A
+href="book.html#bookd">天</A><A
+href="book.html#booke">射</A><A
+href="book.html#bookf">白</A><A
+href="book.html#bookg">鹿</A>．<A
+href="book.html#bookh">笑</A><A
+href="book.html#booki">書</A><A
+href="book.html#bookj">神</A><A
+href="book.html#bookk">俠</A><A
+href="book.html#bookl">倚</A><A
+href="book.html#bookm">碧</A><A
+href="book.html#bookn">鴛</A></P>
+<HR>
+</DIV>
+<DIV class=menu>
+<P>
+<H4><A name=booka></A>飛狐外傳</H4>
+<P>殺閻基<A
+href="item.html#閻基居">(396,374)</A>取得兩頁刀譜，邀<A
+href="char.html#胡斐">胡斐</A><A
+href="item.html#胡斐居">(86,94)</A>加入，助苗人鳳<A
+href="item.html#苗人鳳居">(223,187)</A>退敵，再殺閻基得七心海棠，至藥王莊<A
+href="item.html#藥王莊">(323,318)</A>，摘下門口的藍花後找<A
+href="char.html#程靈素">程靈素</A>製藥，回去治好苗人鳳，胡斐單挑苗人鳳成功則得書。
+</P>
+<H4><A name=bookb></A>雪山飛狐</H4>
+<P><A
+href="char.html#胡斐">胡斐</A>加入得闖王軍刀，治好苗人鳳的眼睛後得闖王寶藏圖<A
+href="item.html#闖王寶藏">(64,51)</A>，殺一堆雪怪後，再以闖王軍刀開門得書。
+</P>
+<H4><A name=bookc></A>連城訣</H4>
+<P>大輪寺<A
+href="item.html#大輪寺">(114,297)</A>救<A
+href="char.html#狄雲">狄雲</A>，至唐詩山洞<A
+href="item.html#唐詩山洞">(364,279)</A>拿唐詩選輯。拿唐詩到北丑<A
+href="item.html#北丑居">(51,109)</A>處泡水，再去天寧寺<A
+href="item.html#天寧寺">(329,237)</A>大打一場，在佛像的後面即可得書。
+</P>
+<H4><A name=bookd></A>天龍八部</H4>
+<P>邀<A href="char.html#段譽">段譽</A><A
+href="item.html#高昇客棧">(199,401)</A>加入，到無量山<A
+href="item.html#無量山">(168,426)</A>見神仙姊姊。找<A
+href="char.html#慕容復">慕容復</A><A
+href="item.html#燕子塢">(308,197)</A>，給他大燕國玉璽和大燕皇帝世系圖表。玉璽在絕情谷<A
+href="item.html#絕情谷">(134,259)</A>，世系圖在鐵掌山<A
+href="item.html#鐵掌山">(302,343)</A>右邊的小路後面。取書方法有二；一是邀慕容復加入，至少林寺<A
+href="item.html#少林寺">(247,300)</A>拿帶頭大哥的信，到丐幫<A
+href="item.html#丐幫">(215,259)</A>逼走喬峰得之；二是不理慕容復，單挑喬峰得之。
+</P>
+<H4><A name=booke></A>射鵰英雄傳</H4>
+<P>邀<A href="char.html#程瑛">程瑛</A><A
+href="item.html#程瑛居">(295,422)</A>加入，至黑龍潭<A
+href="item.html#黑龍潭">(304,351)</A>找瑛姑，依約找一燈<A
+href="item.html#一燈居">(314,370)</A>。再找瑛姑，幫她找周伯通<A
+href="item.html#百花谷">(159,271)</A>，再回去找瑛姑，得知桃花島入口。至桃花島<A
+href="item.html#桃花島">(341,138)</A>找郭靖，道德夠則可拿書，不夠的話，也可以和郭靖單挑。
+</P>
+<H4>白馬嘯西風</H4>
+<P><A name=bookf></A>在絕情谷<A
+href="item.html#絕情谷">(134,259)</A>摘斷腸草，殺巨蟒<A
+href="item.html#楊過山洞">(68,170)</A>治好<A
+href="char.html#楊過">楊過</A>後得玄鐵劍。取得玄鐵劍後，至沙漠廢墟<A
+href="item.html#沙漠廢墟">(53,219)</A>，推開箱子後進入高昌迷宮，主角武力夠即可將門劈開，在裡面拿書。
+</P>
+<H4><A name=bookg></A>鹿鼎記</H4>
+<P>到神龍教<A
+href="item.html#神龍教">(141,113)</A>找洪教主，到五毒教<A
+href="item.html#五毒教">(247,424)</A>找<A
+href="char.html#藍鳳凰">藍鳳凰</A>，再回神龍島大打一場即可得之。
+</P>
+<H4><A name=bookh></A>笑傲江湖</H4>
+<P>最麻煩的一本。在悅來客棧<A
+href="item.html#悅來客棧">(221,286)</A>跟店小二買燒刀子，請<A
+href="char.html#令狐沖">令狐沖</A>喝酒。再和店小二對話一次。至梅莊<A
+href="item.html#梅莊">(330,196)</A>，分別給四位莊主看谿山行旅圖、張旭率意帖、劉仲甫嘔血棋譜和廣陵散。畫在福威鏢局<A
+href="item.html#福威鏢局">(369,258)</A>，書法在嵩山派<A
+href="item.html#嵩山派">(242,293)</A>，棋譜在燕子塢<A
+href="item.html#燕子塢">(308,197)</A>，琴譜在破廟<A
+href="item.html#破廟">(19,180)</A>後面，用鐵鏟盜墳得之。鐵鏟在蝴蝶谷<A
+href="item.html#蝴蝶谷">(238,219)</A>的田裡。挑過四位莊主後，出去再進來一次，找黑白子拿鑰匙。到地道去見任我行，得黑木令，再上來打四位莊主。到黑木崖<A
+href="item.html#黑木崖">(118,178)</A>大打一場之後得書。
+</P>
+<P>要到嵩山派要先挑過泰山派<A
+href="item.html#泰山派">(193,139)</A>、恆山派<A
+href="item.html#恆山派">(122,215)</A>、衡山派<A
+href="item.html#衡山派">(355,376)</A>和華山派<A
+href="item.html#華山派">(193,303)</A>。隊伍中如果有令狐沖的話，他會在五獄劍派併派時強出頭。如果你的令狐沖還太弱的話，最好不要帶他去送死。蝴蝶谷要等到在靈蛇島<A
+href="item.html#靈蛇島">(187,63)</A>救了<A
+href="char.html#王難姑">王難姑</A>之後才能進入。 </P>
+<H4><A name=booki></A>書劍恩仇錄</H4>
+<P>到回族部落<A
+href="item.html#回族部落">(120,343)</A>見霍青桐，到金輪寺<A
+href="item.html#金輪寺">(103,397)</A>大打一場後取得可蘭經，再將可蘭經交給霍青桐即可得之。
+</P>
+<H4><A name=bookj></A>神鵰俠侶</H4>
+<P>殺巨蟒<A
+href="item.html#楊過山洞">(68,170)</A>，用斷腸草<A
+href="item.html#絕情谷">(134,259)</A>救<A
+href="char.html#楊過">楊過</A>後得玉蜂漿，把玉蜂漿送給周伯通<A
+href="item.html#百花谷">(159,271)</A>。出百花谷再進來一次，研究蜜蜂後得知絕情谷底座標<A
+href="item.html#絕情谷底">(132,254)</A>。到谷底讓楊過和<A
+href="char.html#小龍女">小龍女</A>相聚，再到古墓<A
+href="item.html#古墓">(144,218)</A>找他們，在石棺裡可得之。
+</P>
+<H4><A name=bookk></A>俠客行</H4>
+<P>在摩天崖<A
+href="item.html#摩天崖">(186,338)</A>用玄冰碧火酒救<A
+href="char.html#石破天">石破天</A>。酒在山洞<A
+href="item.html#蜘蛛山洞">(75,226)</A>裡，要殺一堆蜘蛛。到凌霄城<A
+href="item.html#凌霄城">(166,404)</A>單挑白萬劍得賞善罰惡令。持令至俠客島<A
+href="item.html#俠客島">(455,328)</A>，帶石破天破解太玄經之後得之。
+</P>
+<H4><A name=bookl></A>倚天屠龍記</H4>
+<P>挑過崑崙派<A
+href="item.html#崑崙派">(42,420)</A>、崆峒派<A
+href="item.html#崆峒派">(161,314)</A>、峨嵋派<A
+href="item.html#峨嵋派">(216,408)</A>之後，到明教分舵<A
+href="item.html#明教分舵">(76,363)</A>打楊逍和成崑，再到光明頂<A
+href="item.html#光明頂">(68,397)</A>挑六大門派，得明教鐵燄令。再殺成崑<A
+href="item.html#成崑居">(18,249)</A>，找謝遜<A
+href="item.html#冰火島">(103,16)</A>，示之令牌及人頭，令其回中原任教主。到靈蛇島<A
+href="item.html#靈蛇島">(187,63)</A>救<A
+href="char.html#王難姑">王難姑</A>，再到蝴蝶谷<A
+href="item.html#蝴蝶谷">(238,219)</A>和她對話，回靈蛇島找金花婆婆，揭發她的真實身份之後，回光明頂破聖火陣得書。
+</P>
+<H4><A name=bookm></A>碧血劍</H4>
+<P>到金蛇山洞<A
+href="item.html#金蛇山洞">(194,292)</A>拿金蛇錐和金蛇劍，找<A
+href="char.html#袁承志">袁承志</A><A
+href="item.html#浡泥島">(278,43)</A>。道德夠即可得書，不夠的話也可以跟他單挑。
+</P>
+<H4><A name=bookn></A>鴛鴦刀</H4>
+<P>田伯光居<A
+href="item.html#田伯光居">(385,306)</A>得鴛刀，闖王寶藏<A
+href="item.html#闖王寶藏">(64,51)</A>得鴦刀。至山洞<A
+href="item.html#鴛鴦刀山洞">(425,38)</A>取書，右邊是鴛刀，左邊是鴦刀，開門之後可得之。
+</P></DIV>
+
+        <div class="copyright">
+            <p>資料來源：雙子貓的世界</p>
+        </div>
+    </div>
+</body>
+</html>

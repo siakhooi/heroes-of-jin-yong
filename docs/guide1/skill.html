@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳完全攻略：武功總訣</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Coordinates styling */
+        .menu a[href^="item.html"], .content a[href^="item.html"] {
+            color: #98d98c;
+            font-family: monospace;
+            font-size: 0.95em;
+        }
+
+        .menu a[href^="item.html"]:hover, .content a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links */
+        .menu a[href^="char.html"], .content a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .menu a[href^="char.html"]:hover, .content a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links */
+        .menu a[href^="skill.html"], .content a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .menu a[href^="skill.html"]:hover, .content a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+
+        /* Tables container */
+        .tables {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tables table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .tables th, .tables td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tables th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .tables tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tables a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .tables a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Location links in tables */
+        .tables a[href^="item.html"] {
+            color: #98d98c;
+        }
+
+        .tables a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links in tables */
+        .tables a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .tables a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links in tables */
+        .tables a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .tables a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* FAQ links in tables */
+        .tables a[href^="faq.html"] {
+            color: #ff9f7f;
+        }
+
+        .tables a[href^="faq.html"]:hover {
+            background: rgba(255, 159, 127, 0.2);
+        }
+
+        .tables li {
+            margin-bottom: 0.5rem;
+            list-style-position: inside;
+        }
+
+        .tables hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 2rem 0;
+        }
+
+
+        /* Tables container */
+        .tables {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tables table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .tables th, .tables td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tables th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .tables tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tables a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .tables a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Location links in tables */
+        .tables a[href^="item.html"] {
+            color: #98d98c;
+        }
+
+        .tables a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links in tables */
+        .tables a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .tables a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links in tables */
+        .tables a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .tables a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* FAQ links in tables */
+        .tables a[href^="faq.html"] {
+            color: #ff9f7f;
+        }
+
+        .tables a[href^="faq.html"]:hover {
+            background: rgba(255, 159, 127, 0.2);
+        }
+
+        .tables li {
+            margin-bottom: 0.5rem;
+            list-style-position: inside;
+        }
+
+        .tables hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="book.html">十四天書攻略</a>
+            <a href="faq.html">常見問題集</a>
+            <a href="map.html">座標</a>
+            <a href="item.html">物品</a>
+            <a href="char.html">人物</a>
+            <a href="skill.html">武功</a>
+            <a href="drug.html">鍊丹</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <DIV class=title>
+<H2>武功總訣</H2>
+<HR>
+</DIV>
+<DIV class=tables>
+<TABLE cellSpacing=0 cellPadding=3 border=1>
+  <TBODY>
+  <TR>
+    <TH><A name=內功></A>內功類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="item.html#華山派">紫霞秘笈</A></TD>
+    <TD>不限</TD>
+    <TD>內力+10</TD>
+  <TR>
+    <TD><A 
+    href="char.html#虛竹">小無相功</A></TD>
+    <TD>內力30武力30</TD>
+    <TD>內力+15,陰陽調和</TD>
+  <TR>
+    <TD><A 
+    href="char.html#石破天">十八泥偶</A></TD>
+    <TD>不限</TD>
+    <TD>內力+20,陰陽調和</TD>
+  <TR>
+    <TD><A 
+    href="char.html#狄雲">神照經</A></TD>
+    <TD>不限</TD>
+    <TD>內力+30</TD>
+  <TR>
+    <TD><A 
+    href="char.html#游坦之">易筋經</A></TD>
+    <TD>陽派內力100武力60資質60</TD>
+    <TD>內力+100</TD>
+  <TR>
+    <TD><A 
+    href="item.html#少林寺">洗髓經</A></TD>
+    <TD>不限</TD>
+    <TD>內力+100</TD>
+  <TR>
+    <TH><A name=輕功></A>輕功類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="item.html#武當山">梯雲縱</A></TD>
+    <TD>不限</TD>
+    <TD>輕功+3</TD>
+  <TR>
+    <TD><A 
+    href="char.html#袁承志">神行百變</A></TD>
+    <TD>資質30</TD>
+    <TD>輕功+4</TD>
+  <TR>
+    <TD><A 
+    href="char.html#段譽">凌波微步</A></TD>
+    <TD>資質60</TD>
+    <TD>輕功+5</TD>
+  <TR>
+    <TH><A name=拳掌></A>拳掌類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="item.html#鐵掌山">鐵掌</A></TD>
+    <TD>內力20拳掌20</TD>
+    <TD>拳掌+1</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#韋小寶">七傷拳</A></TD>
+    <TD>內力50拳掌20</TD>
+    <TD>拳掌+2</TD>
+  <TR>
+    <TD><A 
+    href="char.html#虛竹">天山六陽掌</A></TD>
+    <TD>陽派內力100拳掌30武力40</TD>
+    <TD>拳掌+3</TD>
+  <TR>
+    <TD><A 
+    href="item.html#燕子塢">玄冥神掌</A></TD>
+    <TD>陰派內力150拳掌50武力50資質40</TD>
+    <TD>拳掌+4</TD>
+  <TR>
+    <TD><A 
+    href="item.html#武當山">太極拳</A></TD>
+    <TD>內力30拳掌20武力30</TD>
+    <TD>拳掌+4</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#韋小寶">龍象般若功</A></TD>
+    <TD>陽派內力180拳掌60武力60資質60</TD>
+    <TD>拳掌+5</TD>
+  <TR>
+    <TD><A 
+    href="char.html#石破天">太玄功</A></TD>
+    <TD>石破天</TD>
+    <TD>武力+3輕功+3拳掌+6防禦+3</TD>
+  <TR>
+    <TD><A 
+    href="char.html#楊過">黯然銷魂掌</A></TD>
+    <TD>陰派內力180拳掌60武力60資質60</TD>
+    <TD>拳掌+7</TD>
+  <TR>
+    <TD><A 
+      href="faq.html#降龍十八掌">降龍十八掌</A></TD>
+    <TD>陽派內力200拳掌65武力65</TD>
+    <TD>拳掌+8</TD>
+  <TR>
+    <TH><A name=吸內力></A>吸內力類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="char.html#段譽">北冥神功</A></TD>
+    <TD>資質60</TD>
+    <TD>&nbsp;</TD>
+  <TR>
+    <TD><A 
+    href="item.html#梅莊">吸星大法</A></TD>
+    <TD>資質50</TD>
+    <TD>&nbsp;</TD>
+  <TR>
+    <TD><A 
+    href="char.html#阿紫">神木王鼎</A></TD>
+    <TD>資質50</TD>
+    <TD>功夫帶毒+5</TD>
+  <TR>
+    <TH><A name=劍法></A>劍法類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="char.html#段譽">六脈神劍</A></TD>
+    <TD>段譽</TD>
+    <TD>&nbsp;</TD>
+  <TR>
+    <TD><A 
+      href="item.html#福威鏢局">松風劍法</A></TD>
+    <TD>劍法20</TD>
+    <TD>御劍+1</TD>
+  <TR>
+    <TD><A 
+      href="item.html#泰山派">泰山十八盤</A></TD>
+    <TD>劍法30</TD>
+    <TD>御劍+2</TD>
+  <TR>
+    <TD><A 
+      href="item.html#衡山派">迴峰落雁劍</A></TD>
+    <TD>劍法30</TD>
+    <TD>御劍+2</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#韋小寶">兩儀劍法</A></TD>
+    <TD>劍法40武力40資質50</TD>
+    <TD>御劍+3</TD>
+  <TR>
+    <TD><A 
+      href="char.html#小龍女">玉女素心劍</A></TD>
+    <TD>陰派內力,輕功60</TD>
+    <TD>御劍+3</TD>
+  <TR>
+    <TD><A 
+    href="item.html#重陽宮">七星劍法</A></TD>
+    <TD>劍法50武力50資質50</TD>
+    <TD>御劍+4</TD>
+  <TR>
+    <TD><A 
+      href="item.html#金蛇山洞">金蛇劍法</A></TD>
+    <TD>陰派內力,劍法30武力30資質50</TD>
+    <TD>御劍+4</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#無解">苗家劍法</A></TD>
+    <TD>陽派內力,劍法60</TD>
+    <TD>御劍+5</TD>
+  <TR>
+    <TD><A 
+    href="item.html#武當山">太極劍法</A></TD>
+    <TD>劍法20資質70</TD>
+    <TD>御劍+6</TD>
+  <TR>
+    <TD><A 
+    href="item.html#少林寺">達摩劍法</A></TD>
+    <TD>陽派內力100劍法20武力50</TD>
+    <TD>御劍+6</TD>
+  <TR>
+    <TD><A 
+    href="char.html#楊過">玄鐵劍法</A></TD>
+    <TD>內力100劍法50武力60資質50</TD>
+    <TD>御劍+7</TD>
+  <TR>
+    <TD><A 
+    href="char.html#令狐沖">獨孤九劍</A></TD>
+    <TD>令狐沖</TD>
+    <TD>御劍+8</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#辟邪劍譜">辟邪劍法</A></TD>
+    <TD>陰派內力,劍法20</TD>
+    <TD>御劍+10</TD>
+  <TR>
+    <TH><A name=刀法></A>刀法類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="char.html#狄雲">血刀大法</A></TD>
+    <TD>陰派內力,使刀20</TD>
+    <TD>使刀+2</TD>
+  <TR>
+    <TD><A 
+    href="item.html#金輪寺">火焰刀法</A></TD>
+    <TD>陽派內力,使刀30</TD>
+    <TD>使刀+3</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#無解">反兩儀刀法</A></TD>
+    <TD>使刀40資質40</TD>
+    <TD>使刀+4</TD>
+  <TR>
+    <TD><A 
+    href="char.html#田伯光">狂風刀法</A></TD>
+    <TD>陰派內力,使刀20輕功60</TD>
+    <TD>使刀+3</TD>
+  <TR>
+    <TD><A 
+    href="char.html#胡斐">胡家刀法</A></TD>
+    <TD>使刀20資質30</TD>
+    <TD>使刀+4</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#韋小寶">霹靂刀法</A></TD>
+    <TD>使刀50資質50</TD>
+    <TD>使刀+5</TD>
+  <TR>
+    <TH><A name=其他></A>其他類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="char.html#藍鳳凰">毒龍鞭法</A></TD>
+    <TD>藍鳳凰</TD>
+    <TD>&nbsp;</TD>
+  <TR>
+    <TD><A 
+      href="item.html#蜘蛛山洞">黃沙萬里鞭法</A></TD>
+    <TD>藍鳳凰</TD>
+    <TD>&nbsp;</TD>
+  <TR>
+    <TH><A name=暗器></A>暗器類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+      href="item.html#闖王寶藏">滿天花雨</A></TD>
+    <TD>不限</TD>
+    <TD>暗器+3</TD>
+  <TR>
+    <TD><A 
+    href="char.html#藍鳳凰">含沙射影</A></TD>
+    <TD>暗器30</TD>
+    <TD>暗器+4</TD>
+  <TR>
+    <TD><A 
+    href="faq.html#韋小寶">霹靂秘笈</A></TD>
+    <TD>暗器40,硝石</TD>
+    <TD>暗器+5,霹靂彈</TD>
+  <TR>
+    <TH><A name=綜合></A>綜合類</TH>
+    <TH>條件</TH>
+    <TH>成果</TH>
+  <TR>
+    <TD><A 
+    href="faq.html#左右互搏">左右互搏</A></TD>
+    <TD>資質45以下</TD>
+    <TD>兩次攻擊</TD>
+  <TR>
+    <TD><A 
+      href="item.html#明教分舵">乾坤大挪移</A></TD>
+    <TD>資質75</TD>
+    <TD>防禦+5</TD>
+  <TR>
+    <TD><A 
+    href="item.html#黑木崖">葵花寶典</A></TD>
+    <TD>不限</TD>
+    <TD>生命+30內力+30武力+10輕功+10防禦+10</TD>
+  <TR>
+    <TD><A 
+    href="item.html#古墓">九陰真經</A></TD>
+    <TD>陰派內力,武力50</TD>
+    <TD>生命+10內力+20武力+20輕功+5防禦+5</TD>
+  <TR>
+    <TD><A 
+    href="char.html#張無忌">九陽真經</A></TD>
+    <TD>陽派內力,武力50拳掌20</TD>
+    <TD>生命+10內力+50武力+5防禦+10</TD></TR></TBODY></TABLE></DIV>
+
+        <div class="copyright">
+            <p>資料來源：雙子貓的世界</p>
+        </div>
+    </div>
+</body>
+</html>

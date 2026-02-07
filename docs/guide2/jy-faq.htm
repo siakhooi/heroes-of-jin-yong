@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>问题解答</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>问:</B>铁掌山为什么找不到大燕世族谱?
+<BR><B>答:</B>大燕世族谱在铁掌山中！打败守门的铁掌帮弟子后，在铁掌帮大院的右边，有一小道，不仔细看很难看到！小道的最深处，有一宝箱，大燕世族谱就在里面！
+<BR><BR><B>问:</B>怎么进入药王居? <BR><B>答:</B>药王居入口处左边有一醒目大蓝花,得之可入
+<BR><BR><B>问:</B>要怎么才能在梅庄拿到酒给令狐冲喝呀？
+<BR><B>答:</B>在客栈与令狐冲对话后，和小二对话！给他银两！得到烧刀子酒！给令狐冲喝！
+可是令狐冲并不知足！说酒不好喝！问小二那里有好酒！小二答是梅庄！到林平之家拿图！给四庄主看！然后和四庄主单挑！（建议等级高后去）胜后得酒！
+<BR><BR><B>问:</B>虚竹回少林后怎么找？
+<BR><B>答:</B>如果你要利用虚竹，那么你就不要在带虚竹上擂谷山之前带虚竹上少林！虚竹上了擂谷山就会投入逍遥派！
+<BR><BR><B>问:</B>黑龙潭在什么情况下才有人？ <BR><B>答:</B>救了杨过后见过周伯通后，瑛姑才会在黑龙潭出现！
+<BR><BR><B>问:</B>小龙女在哪呀？我怎么就在绝情谷找不到她？
+<BR><B>答:</B>小龙女在绝情谷底！要找她，先救杨过！让杨过加入你的队伍，得到玉蜂浆，在百花谷与老顽童对话后，把玉蜂浆给他！然后从百花谷出来后又进去！发现他养起了蜜蜂！走进查看蜜蜂！会发现蜜蜂上有字！又乘船到绝情谷底所在地.绝情谷底(131,254)
+<BR><BR><B>问:</B>石破天在哪啊？ <BR><B>答:</B>在摩天崖！要轻功一定才可上去！
+<BR><BR><B>问:</B>北丑不是告诉我龙门客栈有宝贝吗？我怎么没找到？
+<BR><B>答:</B>北丑是一个古怪刁钻的角色，和玩者是处于对立之状态。他也会在智慧果的诱引下提供线索，但真实度及实用性就有赖玩者自行分辨！其实龙门客栈是没有宝贝的！
+<BR><BR><B>问:</B>还有桃花岛怎么进啊？ <BR><B>答:</B>完成瑛姑给你的任务后瑛姑会告诉你桃花岛入口坐标植！在此之前是进不去的！
+<BR><BR><B>问:</B>还有灵蛇岛的门在什么情况下才会打开？ <BR><B>答:</B>只要你和南贤对过话后，灵蛇岛的门一直为你开着！！
+<BR><BR><B>问:</B>蝴蝶谷的铁锨有何用？ <BR><B>答:</B>在破庙挖“广灵散” <BR><BR><B>问:</B>摩天崖那个人怎么医？
+<BR><B>答:</B>在蜘蛛洞拿“玄冰玉火酒”救他 <BR><BR><B>问:</B>令狐冲怎么加入？
+<BR><B>答:</B>令狐冲:麻烦的人物，但看在独孤九剑份上不可不要，买烧刀子给他→向店小二问
+（不问梅庄不会开）→梅庄打败四庄主拿梨花酒→白驼山偷翡翠杯→加入→带他去思过崖 学独孤九剑。 <BR><BR><B>问:</B>怎么找到玉蜂浆？？
+<BR><B>答:</B>收杨过得到！ <BR><BR><B>问:</B>从哪找到弄杨过的病的药？？
+<BR><B>答:</B>绝情谷院里的田里得到断肠草！断肠草就是治杨过病的！ <BR><BR><B>问:</B>打过五岳剑派了怎么没得到率意帖?
+<BR><B>答:</B>率意帖在嵩山派的房间里！大厅进去左下边的房间里！仔细看吧！门挡住视线，箱子只露出一点点，率意帖就在箱子里！
+<BR><BR><B>问:</B>成昆居里没有人?
+<BR><B>答:</B>解了光明顶之围得到令牌！到冰火岛见过谢逊！把令牌给谢逊！这时谢逊就会把杀成昆的任务交给你！这时你去成昆就会在成昆居里出现了!
+<BR><BR><B>问:</B>在游戏结尾,有一扇无法打开的门,使用任何钥匙都不管用,怎么办?
+<BR><B>答:</B>看到墙边的架子了吗?把十四天书依次放在上面就行啦!
+    </div>
+</body>
+</html>

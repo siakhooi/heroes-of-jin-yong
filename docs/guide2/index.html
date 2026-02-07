@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群侠传攻略</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', 'Microsoft YaHei', serif;
+            color: #eee;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.5rem;
+            color: #e94560;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #e94560;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .guide-list {
+            list-style: none;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .guide-list li {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 10px;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .guide-list li:hover {
+            transform: translateX(10px);
+            border-color: rgba(233, 69, 96, 0.8);
+            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.2);
+        }
+
+        .guide-list a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            color: #eee;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .guide-list a:hover {
+            color: #e94560;
+        }
+
+        .guide-list .description {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        .section-title {
+            color: #e94560;
+            font-size: 1.2rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: #555;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../index.html" class="back-link">← 返回首页</a>
+
+        <h1>金庸群侠传攻略</h1>
+        <p class="subtitle">简体中文版攻略指南</p>
+
+        <h2 class="section-title">入门指南</h2>
+        <ul class="guide-list">
+            <li>
+                <a href="jy-start.htm">
+                    游戏指点
+                    <span class="description">新手入门必读，了解游戏基本操作</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-faq.htm">
+                    问题解答
+                    <span class="description">常见问题与解答</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-way.htm">
+                    游戏窍门
+                    <span class="description">实用技巧与秘诀</span>
+                </a>
+            </li>
+        </ul>
+
+        <h2 class="section-title">攻略大全</h2>
+        <ul class="guide-list">
+            <li>
+                <a href="jy-strategy.htm">
+                    游戏攻略
+                    <span class="description">完整游戏流程攻略</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-location.htm">
+                    地图坐标
+                    <span class="description">所有场景位置一览</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-join.htm">
+                    人物加入
+                    <span class="description">队友招募条件与方法</span>
+                </a>
+            </li>
+        </ul>
+
+        <h2 class="section-title">人物与武功</h2>
+        <ul class="guide-list">
+            <li>
+                <a href="jy-properties.htm">
+                    人物属性
+                    <span class="description">角色数值与能力详解</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-style.htm">
+                    修炼武功
+                    <span class="description">武功修炼方法与条件</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-styledesc.htm">
+                    武功介绍
+                    <span class="description">所有武功详细说明</span>
+                </a>
+            </li>
+        </ul>
+
+        <h2 class="section-title">物品与其他</h2>
+        <ul class="guide-list">
+            <li>
+                <a href="jy-item.htm">
+                    获得物品
+                    <span class="description">道具获取方法一览</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-hack.htm">
+                    游戏修改
+                    <span class="description">存档修改与金手指</span>
+                </a>
+            </li>
+            <li>
+                <a href="jy-bug.htm">
+                    游戏BUG
+                    <span class="description">已知问题与解决方法</span>
+                </a>
+            </li>
+        </ul>
+
+        <p class="footer">© 金庸群侠传攻略集</p>
+    </div>
+</body>
+</html>

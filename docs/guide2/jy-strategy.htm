@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏功略</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>游戏功略</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;从家里走出来，去南贤居。对过话之后，拿得罗盘开始游戏之旅 
+<BR><BR><B>《飞狐外传》</B><BR>阎基居得到两页刀法→胡斐居收胡斐→苗人凤居→药王庄（摘蓝花才进得去）先杀阎基拿到七心海棠程灵素才会给解药（带胡斐）→胡斐单挑苗人凤→赢可取得飞狐外传 
+<BR><BR><B>《雪山飞狐》</B><BR>胡斐加入（得到闯王军刀）→（拿到闯王宝藏地图）→闯王宝藏（以闯王军刀开锁） →取得雪山飞狐 
+<BR><BR><B>《连城诀》</B><BR>（大轮寺救狄云）→江南山洞（离主角家不算远）拿唐诗选辑→北丑棚将选辑泡水→ 
+天宁寺打一场（敌人不强）→佛像背後取得连城诀 
+<BR><BR><B>《天龙八部》</B><BR>（燕子坞，段誉会离开）→绝情谷拿传国玉玺→（燕子坞）→铁掌峰拿大燕世族紫→ 
+燕子坞（若接受慕容复，可以逼乔峰退位拿书）→丐帮单挑乔峰→赢可取得天龙八部（先拿到两样东西，等能打败乔峰再去燕子坞，便可多训练段誉一阵子） 
+<BR><BR><B>《射雕英雄传》</B><BR>黑龙潭（带程瑛，但见过周伯通後瑛姑才会在黑龙潭出现）→一灯居→黑龙潭→百花谷→黑龙潭→桃花岛，品德可能要九十（要不就要打倒郭靖），便可取得射雕英雄传 
+<BR><BR><B>《白马啸西风》</B><BR>杨过加入（绝情谷拔断肠草治他）→沙漠废墟地下高昌迷宫（玄铁剑加上要有一定武力或内力才能打开隔世石）→取得白马啸西风 
+<BR><BR><B>《鹿鼎记》</B><BR>神龙岛→五毒教打一场→神龙岛大打一场→取得鹿鼎记 
+<BR><BR><B>《笑傲江湖》</B><BR>去悦来客栈请令狐冲喝酒→分别和梅庄四友单挑（福威镖局拿溪山行旅图、嵩山挑五岳剑派拿率意帖——在此之前要挑其他四派、燕子坞用在绝情谷得来的玉玺拿呕血谱、破庙用蝴蝶谷得来的铁铲挖墓拿广陵散）→出庄再回来和黑白子对话→梅庄地牢→得到吸星大法及黑木令→上黑木崖打东方不败（难关，先练练功吧！）→取得笑傲江湖（出来还要和五岳剑派的人马打一场）。 
+<BR><BR><B>《书剑恩仇录》</B><BR>回族部落→金轮寺打金轮法王拿到可兰经→回族部落，取得书剑恩仇录 
+<BR><BR><B>《神雕侠侣》</B><BR>杨过加入（绝情谷拔断肠草治他）→百花谷送玉蜂浆给周伯通，看有刻字的玉蜂→绝情谷後山找到小龙女(当然要带杨过)→古墓的石棺→取得神雕侠侣。 
+<BR><BR><B>《侠客行》</B><BR>蜘蛛洞拿玄冰碧火酒→救石破天→凌霄城打败白万剑→取得赏善罚恶令→侠客岛（要带石破天）→取得侠客行 
+<BR><BR><B>《倚天屠龙记》</B><BR>（冰火岛拿谢逊金毛→昆仑仙境找张无忌→拜访六大派）→明教分舵打败杨逍→明教地道→光明顶大战六大派，拿铁焰令→冰火岛→成昆居杀成昆→冰火岛→光明顶→灵蛇岛找紫衫龙王（要在蝴蝶谷王难姑说出金花婆婆就是紫衫龙王她才会承认）→光明顶破光明圣火阵→取得倚天屠龙记 
+<BR><BR><B>《碧血剑》</B><BR>（渤泥岛）→华山旁金蛇秘洞取金蛇剑→渤泥岛→品德够可取得碧血剑 
+<BR><BR><B>《鸳鸯刀》</B><BR>田伯光居拿鸳刀→闯王宝藏拿鸯刀→东海无名岛→取得鸳鸯刀 <BR><BR>
+<H4 
+align=center><B>*行程若为括号表示不一定要经过这道过程*</B></H4>&nbsp;&nbsp;&nbsp;&nbsp;拿到十四天书后就回自己家，发现客厅方桌上有一张华山论剑的武林邀请帖。揣上武林帖去参加华山武道大会，开始华山论剑！打败武林众多高手，取得武林盟主之位，并得到武林圣杖。到台湾霹雳堂去把武林圣杖交给霹雳堂堂主孔八拉，换的绿钥匙。在霹雳堂厨房用绿钥匙打开紧闭的里间房门，推开方桌，进入地洞，把十四天书分别放在规定位置，走进地洞深处。这时武林十大高手出现（若道德值在50以上则是欧阳峰等人要主角交武林秘籍；若道德值在50以下则是郭进等人要为武林除害）打完十大高手后，游戏四大天王出现，与他们对完话后进入地洞最深处，那里有一个时光传送机，进入...... 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>&lt;结束游戏&gt;</B>
+    </div>
+</body>
+</html>

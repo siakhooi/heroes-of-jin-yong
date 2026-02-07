@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏窍门</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH><BR></TH>
+    <TH>获得地方</TH>
+    <TH>钥匙作用</TH>
+  <TR align=middle valine="middle">
+    <TH>金钥匙</TH>
+    <TD>华山派</TD>
+    <TD>开北丑宝箱得到黑玉断续膏</TD>
+  <TR align=middle valine="middle">
+    <TH>银钥匙</TH>
+    <TD>高昌迷宫</TD>
+    <TD>开北丑宝箱得到茯苓首乌丸两个</TD>
+  <TR align=middle valine="middle">
+    <TH>铜钥匙</TH>
+    <TD>万鳄岛</TD>
+    <TD>开藏宝洞宝箱得到智慧果</TD>
+  <TR align=middle valine="middle">
+    <TH>铁钥匙</TH>
+    <TD>云鹤崖</TD>
+    <TD>开藏宝洞宝箱得到智慧果</TD>
+  <TR align=middle valine="middle">
+    <TH>蓝钥匙</TH>
+    <TD>华山派</TD>
+    <TD>开华山宝箱得到紫霞秘籍,金钥匙</TD>
+  <TR align=middle valine="middle">
+    <TH>紫钥匙</TH>
+    <TD>燕子坞</TD>
+    <TD>开燕子坞宝箱得到刘仲甫呕血棋谱</TD>
+  <TR align=middle valine="middle">
+    <TH>橙钥匙</TH>
+    <TD>大伦寺</TD>
+    <TD>开大伦寺监狱救狄云</TD>
+  <TR align=middle valine="middle">
+    <TH>红钥匙</TH>
+    <TD>梅庄</TD>
+    <TD>开梅庄地牢救任我行</TD>
+  <TR align=middle valine="middle">
+    <TH>黄钥匙</TH>
+    <TD>霹雳堂</TD>
+    <TD>开霹雳堂两宝箱得到皮衣，槟榔</TD>
+  <TR align=middle valine="middle">
+    <TH>绿钥匙</TH>
+    <TD>霹雳堂</TD>
+    <TD>开霹雳堂地道</TD></TR></TBODY></TABLE><BR><BR>梅庄要等悦来客栈店小二提到它门才会开。 
+<BR><BR>进入山洞后按L键可照明。 <BR><BR>桃花岛的入口要等瑛姑指示後才会开。 <BR><BR>燕子坞要等段誉去过无量山洞才会开。 
+<BR><BR>绝情谷底要等见到刻字玉蜂才会开。 <BR><BR>六大派等去过明教分舵地道後才会攻打光明顶。 
+<BR><BR>五岳剑派嵩山并派大会等拜访（杀过）其余四派才会召开。 <BR><BR>屋子人已离开，主人允许，主人加入队伍，此三种情况去翻箱倒柜不会降低道德值。 
+<BR><BR>辟邪剑法若修炼不起，则修炼十八泥偶或小无相神功后，再修炼辟邪剑法。 
+<BR><BR>要加资质的话到海边小屋和到思过崖，前者加3点（前提是先别到洪七公那里），后者加5点（前提是带上令狐冲）。 
+<BR><BR>修炼野球拳全靠打拳的数量（打空拳也行），约60拳左右升一级，一级至九级野球拳都很差，但十级野球拳就无敌了。 
+<BR><BR>万一在并派大会之前到华山派时队中有令狐冲，会由令狐冲单挑四派掌门。 
+<BR><BR>等声望到达二百，且十四部书都收到，家中会出现武林大会请帖，一旦拿到请帖，其余伙伴会自行离去，且无法再找到他们。 
+<BR><BR>武林大会是练功升级最大机会，且後面还有一场大战，此机会不可浪费，一定要利用此机会练九阳神功（因为可一次对付多人）。 
+<BR><BR>在去擂鼓林前若带虚竹回少林他会离队。 
+<BR><BR>要学左右互搏术，可以在刚出来去南贤居过后（最好存进度）去林平之家，直接拿松山剑谱，装上修炼后，看学习经验点数，如果经验点数是150，则学的会；反之则不会，退出游戏重新选人。 
+<BR><BR>每个门派的守门人都很弱，可作为初期练功之用。 <BR><BR>在光明顶打败六大派後，昆仑派及崆峒派可用来练功。 
+<BR><BR>打斗前，若主角说“...顺便赚点经验值...”则打完后要减道德值。 <BR><BR>在嵩山大会後，嵩山派可用来练功。 
+<BR><BR>在初期可以去灵蛇岛找金花婆婆或去金轮寺练功，中期可以去百花谷找周伯通练功。 
+<BR><BR>在本游戏中，石破天、林平之、小龙女、虚竹、平一指、胡青牛、狄云、岳老三、王难姑可以练习左右互博术。 
+<BR><BR>在参加武林大会，拿得神杖后，去霹雳堂进行最后决战，要打败十大高手联手。 <BR><BR>最後大战对手会因之前走正或邪之路而不同，正易而邪难。 
+<BR><BR><BR>站长心得 <BR><BR>*剑法威力最大的是辟邪剑法(点攻击) <BR><BR>*拳法威力最大的是野球拳(点攻击) 
+<BR><BR>*刀法威力最大的是霹雳刀法(面攻击) <BR><BR>*掌法威力最大的是降龙十八掌(点攻击) <BR><BR>*吸取内力威力最大的是北冥神功 
+<BR><BR>*面攻击威力最大的是九阳神功 <BR><BR>*点攻击威力最大的是辟邪剑法　　 <BR><BR>*最好的医书是胡青牛医书，可炼黑玉断续膏 
+<BR><BR>*最好别修炼内功，内功在自身的升级中和吃补品中最高值都会增加 　　　 <BR><BR>*强烈推荐大家练左右互搏术 
+<BR><BR>*推荐大家练十八泥偶 <BR><BR>*推荐大家练九阳神功 <BR><BR>*推荐大家游戏初期在金轮寺练功，野球拳十级后在百花谷练功
+    </div>
+</body>
+</html>

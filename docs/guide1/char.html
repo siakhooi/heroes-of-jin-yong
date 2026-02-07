@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳完全攻略：人物及伙伴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Coordinates styling */
+        .menu a[href^="item.html"], .content a[href^="item.html"] {
+            color: #98d98c;
+            font-family: monospace;
+            font-size: 0.95em;
+        }
+
+        .menu a[href^="item.html"]:hover, .content a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links */
+        .menu a[href^="char.html"], .content a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .menu a[href^="char.html"]:hover, .content a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links */
+        .menu a[href^="skill.html"], .content a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .menu a[href^="skill.html"]:hover, .content a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="book.html">十四天書攻略</a>
+            <a href="faq.html">常見問題集</a>
+            <a href="map.html">座標</a>
+            <a href="item.html">物品</a>
+            <a href="char.html">人物</a>
+            <a href="skill.html">武功</a>
+            <a href="drug.html">鍊丹</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <DIV class=title>
+<H2>人物及伙伴</H2>
+<HR>
+</DIV>
+<DIV class=menu>
+<H4><A name=胡斐></A>胡斐◎<A 
+href="item.html#胡斐居">胡斐居</A> </H4>
+<P>初期可以拿來當作練功的對象。打<A 
+href="item.html#閻基居">閻基</A>取得兩頁刀譜交給他就會加入。是飛狐外傳和雪山飛狐的關鍵人物，也是必備的伙伴之一。 
+<BR>[<A 
+href="book.html#booka">飛狐外傳</A>．<A 
+href="book.html#bookb">雪山飛狐</A>．<A 
+href="skill.html#刀法">胡家刀法</A>．<A 
+href="item.html#闖王寶藏">闖王軍刀</A>．<A 
+href="item.html#苗人鳳居">冷月寶刀</A>] </P>
+<H4><A name=程靈素></A>程靈素◎<A 
+href="item.html#藥王莊">藥王莊</A> </H4>
+<P>隊伍中有胡斐的話就會加入，但沒什麼用。 <BR>[<A 
+href="book.html#booka">飛狐外傳</A>．<A 
+href="drug.html#醫書">藥王神篇</A>] </P>
+<H4><A name=狄雲></A>狄雲◎<A 
+href="item.html#大輪寺">大輪寺</A>．<A 
+href="item.html#河洛客棧">河洛客棧</A> </H4>
+<P>在大輪寺救狄雲之後就可以加入了。若不行，就是道德不夠。雖然可以練<A 
+href="faq.html#左右互搏">左右互搏</A>，不過沒什麼用，救了他之後就可以拿唐詩了，不一定要招募。 
+<BR>[<A href="book.html#bookc">連城訣</A>．<A 
+href="skill.html#刀法">血刀大法</A>．<A 
+href="skill.html#內功">神照經</A>．<A 
+href="item.html#大輪寺">血刀</A>．<A 
+href="item.html#大輪寺">烏蠶衣</A>] </P>
+<H4><A name=段譽></A>段譽◎<A 
+href="item.html#高昇客棧">高昇客棧</A>．<A 
+href="item.html#燕子塢">燕子塢</A>．<A 
+href="item.html#無量山">無量山</A> </H4>
+<P>到客棧找他就會加入，是初期的必備伙伴。先帶他去無量山學武功，之後就可以去燕子塢了。段譽見到王語嫣後會留在燕子塢，要等到拿了天龍八部之後才會再加入，兩人會在無量山廝守。 
+<BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="skill.html#劍法">六脈神劍譜</A>．<A 
+href="skill.html#吸內力">北冥神功</A>．<A 
+href="skill.html#輕功">凌波微步</A>] </P>
+<H4><A name=王語嫣></A>王語嫣◎<A 
+href="item.html#燕子塢">燕子塢</A>．<A 
+href="item.html#無量山">無量山</A> </H4>
+<P>初期隊伍中要有慕容復才會加入。拿到天龍八部後會在無量山。王語嫣在隊伍中可以增加全體的攻擊力。 <BR>[<A 
+href="book.html#bookd">天龍八部</A>] </P>
+<H4><A name=慕容復></A>慕容復◎<A 
+href="item.html#燕子塢">燕子塢</A> </H4>
+<P>給他<A href="item.html#絕情谷">玉璽</A>和<A 
+href="item.html#鐵掌山">世系圖表</A>即可加入，但是帶他去害喬峰會減少道德。 
+<BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="skill.html#拳掌">玄冥神掌</A>．<A 
+href="item.html#梅莊">劉仲甫嘔血棋譜</A>] </P>
+<H4><A name=虛竹></A>虛竹◎<A 
+href="item.html#龍門客棧">龍門客棧</A> </H4>
+<P>到龍門客棧找他，道德大於70就可以招募。先帶他去<A 
+href="item.html#擂鼓山">擂鼓山</A>當掌門，再去<A 
+href="item.html#少林寺">少林寺</A>的話就不會發生慘案了。並不是那麼關鍵的人物，可練<A 
+href="faq.html#左右互搏">左右互搏</A>。 <BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="skill.html#拳掌">天山六陽掌</A>．<A 
+href="skill.html#內功">小無相功</A>．<A 
+href="item.html#薛慕華居">七寶指環</A>]</P>
+<H4><A name=薛慕華></A>薛慕華◎<A 
+href="item.html#薛慕華居">薛慕華居</A> </H4>
+<P>給他看<A 
+href="item.html#擂鼓山">七寶指環</A>即會加入。 
+<BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="drug.html#醫書">子午針灸經</A>]</P>
+<H4><A name=岳老三></A>岳老三◎<A 
+href="item.html#萬鱷島">萬鱷島</A> </H4>
+<P>帶段譽去萬鱷島打敗他之後即可收編。 <BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="item.html#萬鱷島">鱷皮護甲</A>] </P>
+<H4><A name=阿紫></A>阿紫◎<A 
+href="item.html#破廟">破廟</A> </H4>
+<P>到破廟給她<A 
+href="item.html#冰蠶山洞">冰蠶</A>，道德低於45即可招募。 
+<BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="skill.html#吸內力">神木王鼎</A>] </P>
+<H4><A name=游坦之></A>游坦之◎<A 
+href="item.html#破廟">破廟</A> </H4>
+<P>阿紫加入後即可招募。 <BR>[<A 
+href="book.html#bookd">天龍八部</A>．<A 
+href="skill.html#內功">易筋經</A>]</P>
+<H4><A name=藍鳳凰></A>藍鳳凰◎<A 
+href="item.html#五毒教">五毒教</A> </H4>
+<P>五毒教教主，打敗她即可招募，不過沒什麼用。是鹿鼎記的關鍵之一，但不一定要招募。 <BR>[<A 
+href="book.html#bookg">鹿鼎記</A>．<A 
+href="skill.html#暗器">含沙射影</A>．<A 
+href="skill.html#其他">毒龍鞭法</A>]</P>
+<H4><A name=令狐沖></A>令狐沖◎<A 
+href="item.html#悅來客棧">悅來客棧</A> </H4>
+<P>先跟悅來客棧的店小二買燒刀子請他喝，再和店小二對話開<A 
+href="item.html#梅莊">梅莊</A>入口。帶<A 
+href="item.html#福威鏢局">谿山行旅圖</A>單挑丹青生得梨花酒，打<A 
+href="item.html#白駝山">歐陽克</A>得翡翠杯。再回來請令狐沖喝梨花酒，給他翡翠杯，就會加入。帶令狐沖去<A 
+href="item.html#思過崖">思過崖</A>學獨孤九劍，練成之前要小心不要讓他去<A 
+href="item.html#嵩山派">五獄劍派併派大會</A>，他會強出頭。 
+<BR>[<A 
+href="book.html#bookh">笑傲江湖</A>．<A 
+href="skill.html#劍法">獨孤九劍</A>] </P>
+<H4><A name=林平之></A>林平之◎<A 
+href="item.html#福威鏢局">福威鏢局</A> </H4>
+<P>到福威鏢局打他，再到<A 
+href="item.html#青城派">青城派</A>幫他報仇。在青城派問到林父遺言後回去找他，再進來一次即可招募。非關鍵人物，可有可無，但是夠笨，可以練<A 
+href="faq.html#左右互搏">左右互搏</A>。 <BR>[<A 
+href="book.html#bookh">笑傲江湖</A>．<A 
+href="skill.html#劍法">松風劍譜</A>．<A 
+href="skill.html#劍法">辟邪劍譜</A>．<A 
+href="item.html#梅莊">谿山行旅圖</A>]</P>
+<H4><A name=平一指></A>平一指◎<A 
+href="item.html#平一指居">平一指居</A> </H4>
+<P>殺<A 
+href="item.html#田伯光居">田伯光</A>後即會加入。 
+<BR>[<A 
+href="book.html#bookh">笑傲江湖</A>．<A 
+href="drug.html#醫書">華陀內昭圖</A>] </P>
+<H4><A name=田伯光></A>田伯光◎<A 
+href="item.html#田伯光居">田伯光居</A> </H4>
+<P>隊伍中有女性即會加入，但會減少道德。 <BR>[<A 
+href="book.html#bookh">笑傲江湖</A>．<A 
+href="skill.html#刀法">狂風刀法</A>．<A 
+href="item.html#鴛鴦刀山洞">鴛刀</A>] </P>
+<H4>楊過◎<A 
+href="item.html#楊過山洞">楊過山洞</A>．<A 
+href="item.html#古墓">古墓</A> </H4>
+<P>到<A 
+href="item.html#絕情谷">絕情谷</A>拿斷腸草，到山洞打巨蟒，治楊過之後即可招募。需要他的玄鐵劍才能拿白馬嘯西風。和小龍女團圓後會回古墓。 
+<BR>[<A 
+href="book.html#bookj">神鵰俠侶</A>．<A 
+href="book.html#bookf">白馬嘯西風</A>．<A 
+href="skill.html#劍法">玄鐵劍法</A>．<A 
+href="skill.html#拳掌">黯然銷魂掌</A>．<A 
+href="item.html#沙漠廢墟">玄鐵劍</A>．<A 
+href="item.html#百花谷">玉蜂漿</A>] </P>
+<H4><A name=小龍女></A>小龍女◎<A 
+href="item.html#絕情谷底">絕情谷底</A>．<A 
+href="item.html#古墓">古墓</A></H4>
+<P>救楊過後得<A 
+href="item.html#楊過山洞">玉蜂漿</A>，送給<A 
+href="item.html#百花谷">周伯通</A>，看蜜蜂開絕情谷底。帶楊過到絕情谷底和她相遇，兩人會回古墓。加入後可以拿到神鵰俠侶，她有<A 
+href="faq.html#左右互搏">左右互搏</A>。 <BR>[<A 
+href="book.html#bookj">神鵰俠侶</A>．<A 
+href="skill.html#劍法">玉女素心劍法</A>．<A 
+href="skill.html#綜合">九陰真經</A>]</P>
+<H4><A name=程瑛></A>程瑛◎<A 
+href="item.html#程瑛居">程瑛居</A> </H4>
+<P>直接去她家找人，道德大於60即會加入。為進<A 
+href="item.html#黑龍潭">黑龍潭</A>的必備人物。 
+<BR>[<A 
+href="book.html#bookj">神鵰俠侶</A>．<A 
+href="book.html#booke">射鵰英雄傳</A>] </P>
+<H4><A name=歐陽克></A>歐陽克◎<A 
+href="item.html#白駝山">白駝山</A> </H4>
+<P>打敗他之後即可招募。 <BR>[<A 
+href="book.html#bookj">神鵰俠侶</A>．<A 
+href="item.html#悅來客棧">翡翠杯</A>] </P>
+<H4><A name=石破天></A>石破天◎<A 
+href="item.html#摩天崖">摩天崖</A>．<A 
+href="item.html#悅來客棧">悅來客棧</A> </H4>
+<P>在<A 
+href="item.html#蜘蛛山洞">蜘蛛山洞</A>拿玄冰碧火酒到摩天崖救他就會加入了。帶他去<A 
+href="item.html#俠客島">俠客島</A>學太玄經，得到俠客行。也是可以練<A 
+href="faq.html#左右互搏">左右互搏</A>的笨蛋之一。若隊伍已滿，出摩天崖之後，他會跑去悅來客棧，大概是令狐沖的隔壁桌吧。 
+<BR>[<A href="book.html#bookk">俠客行</A>．<A 
+href="skill.html#內功">十八泥偶</A>．<A 
+href="skill.html#拳掌">太玄經</A>．<A 
+href="item.html#摩天崖">白龍劍</A>] </P>
+<H4><A name=張無忌></A>張無忌◎<A 
+href="item.html#崑崙仙境">崑崙仙境</A> </H4>
+<P>先去<A 
+href="item.html#冰火島">冰火島</A>拿謝遜的金毛，再過山洞到崑崙仙境拿給他看，就會加入。耐打又可兼跌打醫師，強力推薦。 
+<BR>[<A 
+href="book.html#bookl">倚天屠龍記</A>．<A 
+href="skill.html#綜合">九陽真經</A>]</P>
+<H4><A name=王難姑></A>王難姑◎<A 
+href="item.html#靈蛇島">靈蛇島</A>．<A 
+href="item.html#蝴蝶谷">蝴蝶谷</A> </H4>
+<P>到靈蛇島打金花婆婆後，到蝴蝶谷招募即可。是倚天屠龍記的關鍵人物，一定要找她。 <BR>[<A 
+href="book.html#bookl">倚天屠龍記</A>．<A 
+href="drug.html#醫書">毒經</A>] </P>
+<H4><A name=胡青牛></A>胡青牛◎<A 
+href="item.html#蝴蝶谷">蝴蝶谷</A> </H4>
+<P>救<A 
+href="item.html#靈蛇島">王難姑</A>後到蝴蝶谷招募即可。他的醫書很好用，可以造黑玉斷續膏，一定要來拿。 
+<BR>[<A 
+href="book.html#bookl">倚天屠龍記</A>．<A 
+href="drug.html#醫書">胡青牛醫書</A>] </P>
+<H4>袁承志◎<A href="item.html#浡泥島">浡泥島</A> 
+</H4>
+<P>住在浡泥島，拿到碧血劍之後即可招募。 <BR>[<A 
+href="book.html#bookm">碧血劍</A>．<A 
+href="skill.html#輕功">神行百變</A>] </P></DIV>
+
+        <div class="copyright">
+            <p>資料來源：雙子貓的世界</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heroes of Jin Yong - Coming Soon</title>
+    <title>金庸群俠傳 Heroes of Jin Yong</title>
     <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -263,6 +263,36 @@
             box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
         }
 
+        /* Navigation button */
+        .nav-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .nav-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
         /* Footer */
         .footer {
             position: absolute;
@@ -317,36 +347,19 @@
 
         <div class="sword-divider"></div>
 
-        <p class="coming-soon">Coming Soon</p>
 
-        <div class="countdown" id="countdown">
-            <div class="countdown-item">
-                <span class="countdown-number" id="days">00</span>
-                <span class="countdown-label">Days</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="hours">00</span>
-                <span class="countdown-label">Hours</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="minutes">00</span>
-                <span class="countdown-label">Minutes</span>
-            </div>
-            <div class="countdown-item">
-                <span class="countdown-number" id="seconds">00</span>
-                <span class="countdown-label">Seconds</span>
-            </div>
-        </div>
 
         <div class="quote">
             <p class="quote-text">"The path of martial arts is long, but those who persevere shall reach the summit."</p>
             <p class="quote-author">— The World of Wuxia</p>
         </div>
 
-        <form class="signup" onsubmit="handleSubmit(event)">
-            <input type="email" placeholder="Enter your email for updates" required>
-            <button type="submit">Notify Me</button>
-        </form>
+        <div class="button-group">
+            <a href="guide1/index.html" class="nav-button">完全攻略（繁體）</a>
+            <a href="guide2/index.html" class="nav-button">完全攻略（简体）</a>
+            <a href="midi/index.html" class="nav-button">🎵 遊戲音樂</a>
+            <a href="tools/index.html" class="nav-button">🛠️ 工具下載</a>
+        </div>
 
         <p class="footer">© 2026 Heroes of Jin Yong. All legends await.</p>
     </div>
@@ -368,44 +381,8 @@
             }
         }
 
-        // Countdown timer
-        function updateCountdown() {
-            const launchDate = new Date('2026-06-01T00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = launchDate - now;
-
-            if (distance > 0) {
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = String(days).padStart(2, '0');
-                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-            }
-        }
-
-        // Handle email signup
-        function handleSubmit(e) {
-            e.preventDefault();
-            const button = e.target.querySelector('button');
-            const originalText = button.textContent;
-            button.textContent = '✓ Subscribed!';
-            button.style.background = 'linear-gradient(135deg, #2ecc71, #27ae60)';
-
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = 'linear-gradient(135deg, #e94560, #ff6b6b)';
-                e.target.reset();
-            }, 3000);
-        }
-
         // Initialize
         createParticles();
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
     </script>
 </body>
 </html>

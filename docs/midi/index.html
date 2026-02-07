@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳 - 遊戲音樂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.77,npm/@magenta/music@1.23.1/es6/core.js,npm/html-midi-player@1.5.0"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h1 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 3rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 0.5rem;
+        }
+
+        .title p {
+            color: #aaa;
+            font-size: 1.1rem;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Music list */
+        .music-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .music-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(233, 69, 96, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .music-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(233, 69, 96, 0.4);
+        }
+
+        .music-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .music-name {
+            color: #e94560;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .music-name span {
+            font-size: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* MIDI Player styling */
+        midi-player {
+            display: block;
+            width: 100%;
+            margin-bottom: 0.5rem;
+        }
+
+        midi-player::part(control-panel) {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            border-radius: 8px;
+        }
+
+        midi-player::part(play-button) {
+            color: #e94560;
+        }
+
+        midi-player::part(time) {
+            color: #aaa;
+        }
+
+        midi-visualizer {
+            display: block;
+            width: 100%;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        midi-visualizer svg rect.note {
+            fill: #e94560;
+        }
+
+        midi-visualizer svg rect.note.active {
+            fill: #ff6b6b;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .title h1 {
+                font-size: 2rem;
+            }
+            .music-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+
+        <div class="title">
+            <h1>🎵 遊戲音樂</h1>
+            <p>Game Music / MIDI Collection</p>
+            <hr>
+        </div>
+
+        <div class="music-list">
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 02</div>
+                    <a href="jinyong2.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong2.mid" sound-font visualizer="#viz2"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz2"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 03</div>
+                    <a href="jinyong3.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong3.mid" sound-font visualizer="#viz3"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz3"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 04</div>
+                    <a href="jinyong4.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong4.mid" sound-font visualizer="#viz4"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz4"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 05</div>
+                    <a href="jinyong5.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong5.mid" sound-font visualizer="#viz5"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz5"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 06</div>
+                    <a href="jinyong6.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong6.mid" sound-font visualizer="#viz6"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz6"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 07</div>
+                    <a href="jinyong7.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong7.mid" sound-font visualizer="#viz7"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz7"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 08</div>
+                    <a href="jinyong8.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong8.mid" sound-font visualizer="#viz8"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz8"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 09</div>
+                    <a href="jinyong9.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong9.mid" sound-font visualizer="#viz9"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz9"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 10</div>
+                    <a href="jinyong10.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong10.mid" sound-font visualizer="#viz10"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz10"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 11</div>
+                    <a href="jinyong11.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong11.mid" sound-font visualizer="#viz11"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz11"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 12</div>
+                    <a href="jinyong12.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong12.mid" sound-font visualizer="#viz12"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz12"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 13</div>
+                    <a href="jinyong13.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong13.mid" sound-font visualizer="#viz13"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz13"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 14</div>
+                    <a href="jinyong14.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong14.mid" sound-font visualizer="#viz14"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz14"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 15</div>
+                    <a href="jinyong15.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong15.mid" sound-font visualizer="#viz15"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz15"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 16</div>
+                    <a href="jinyong16.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong16.mid" sound-font visualizer="#viz16"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz16"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 17</div>
+                    <a href="jinyong17.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong17.mid" sound-font visualizer="#viz17"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz17"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 18</div>
+                    <a href="jinyong18.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong18.mid" sound-font visualizer="#viz18"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz18"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 19</div>
+                    <a href="jinyong19.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong19.mid" sound-font visualizer="#viz19"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz19"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 20</div>
+                    <a href="jinyong20.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong20.mid" sound-font visualizer="#viz20"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz20"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 21</div>
+                    <a href="jinyong21.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong21.mid" sound-font visualizer="#viz21"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz21"></midi-visualizer>
+            </div>
+
+            <div class="music-card">
+                <div class="music-header">
+                    <div class="music-name"><span>🎶</span> 金庸群俠傳 22</div>
+                    <a href="jinyong22.mid" download class="download-btn">⬇ 下載</a>
+                </div>
+                <midi-player src="jinyong22.mid" sound-font visualizer="#viz22"></midi-player>
+                <midi-visualizer type="piano-roll" id="viz22"></midi-visualizer>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>金庸群俠傳 遊戲原聲音樂</p>
+        </div>
+    </div>
+</body>
+</html>

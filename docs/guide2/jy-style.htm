@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修炼武功</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>医书类</B><BR>
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="22%"><BR></TH>
+    <TH width="20%">修炼条件</TH>
+    <TH width="15%">修炼后</TH>
+    <TH>炼出丹药</TH>
+  <TR align=middle valine="middle">
+    <TH>子午针灸经</TH>
+    <TD>医疗20</TD>
+    <TD>医疗＋3<BR>解毒＋1</TD>
+    <TD>精气丸,大还丹,黄连解毒丸,玉洞黑石丹,九转熊蛇丸</TD>
+  <TR align=middle valine="middle">
+    <TH>华陀内昭图</TH>
+    <TD>医疗35</TD>
+    <TD>医疗＋4</TD>
+    <TD>玉真散,三黄宝腊丹,九转灵宝丸,田七鲨胆散,天香断续胶</TD>
+  <TR align=middle valine="middle">
+    <TH>胡青牛医书</TH>
+    <TD>医疗50</TD>
+    <TD>医疗＋5<BR>解毒＋3</TD>
+    <TD>牛黄血竭丹,玉灵散,白云熊胆丸,黑玉断续膏,无常丹</TD>
+  <TR align=middle valine="middle">
+    <TH>五毒秘传</TH>
+    <TD>使毒20</TD>
+    <TD>使毒＋3<BR>解毒＋3</TD>
+    <TD>黄莲解毒丹,天心解毒丹,回阳五龙膏</TD>
+  <TR align=middle valine="middle">
+    <TH>毒经</TH>
+    <TD>使毒40</TD>
+    <TD>医疗＋5<BR>解毒＋5</TD>
+    <TD>黄连解毒丹,天心解毒丹,回阳五龙膏,牛黄血竭丹</TD>
+  <TR align=middle valine="middle">
+    <TH>药王神篇</TH>
+    <TD>使毒60</TD>
+    <TD>医疗＋7<BR>解毒＋7</TD>
+    <TD>黄连解毒丸,天心解毒丹,回阳五龙膏,牛黄血竭丹,六阳正气丹</TD>
+  <TR>
+    <TH colSpan=4>注：练丹需要药材</TH></TR></TBODY></TABLE><BR><BR><B>内功类</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;内力分阴阳两派，某些内功非阳派内力不可修炼。但是可调和阴阳两派武功者除外。修炼 
+条件中的武力代表是攻击力，纯武力是不含任何武器护具的数值。 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="30%"><BR></TH>
+    <TH width="30%">修炼条件</TH>
+    <TH width="100%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>紫霞秘笈</TH>
+    <TD>任何人皆可练</TD>
+    <TD>内力＋10</TD>
+  <TR align=middle valine="middle">
+    <TH>小无相功</TH>
+    <TD>内力30武力30</TD>
+    <TD>内力＋15内力路子阴阳调和</TD>
+  <TR align=middle valine="middle">
+    <TH>十八泥偶</TH>
+    <TD>任何人皆可练</TD>
+    <TD>内力＋20内力路子阴阳调和</TD>
+  <TR align=middle valine="middle">
+    <TH>神照经</TH>
+    <TD>任何人皆可练</TD>
+    <TD>内力＋30</TD>
+  <TR align=middle valine="middle">
+    <TH>易筋经</TH>
+    <TD>需阳派武力内力100武力60资质60</TD>
+    <TD>内力＋100</TD>
+  <TR align=middle valine="middle">
+    <TH>洗髓经</TH>
+    <TD>任何人皆可练</TD>
+    <TD>内力＋100</TD></TR></TBODY></TABLE><BR><BR><B>轻功类</B> 
+<BR><BR>修炼轻功类功夫,只提升轻功,不增加武功级数,可以一直练,但有上限。 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="30%"><BR></TH>
+    <TH width="30%">修炼条件</TH>
+    <TH width="100%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>梯云纵心法</TH>
+    <TD>任何人皆可练</TD>
+    <TD>轻功＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>神行百变</TH>
+    <TD>资质30</TD>
+    <TD>轻功＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>凌波微步</TH>
+    <TD>资质60</TD>
+    <TD>轻功＋5</TD></TR></TBODY></TABLE><BR><BR><B>拳掌类</B> 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="20%"><BR></TH>
+    <TH width="40%">修炼条件</TH>
+    <TH width="40%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>铁掌拳谱</TH>
+    <TD>内力20拳掌20</TD>
+    <TD>拳掌＋1</TD>
+  <TR align=middle valine="middle">
+    <TH>七伤拳谱</TH>
+    <TD>内力50拳掌20</TD>
+    <TD>拳掌＋2</TD>
+  <TR align=middle valine="middle">
+    <TH>天山六阳掌</TH>
+    <TD>需阳派内力内力100武力40拳掌30</TD>
+    <TD>拳掌＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>玄冥神掌</TH>
+    <TD>需阴派内力内力150武力50拳掌50资质40</TD>
+    <TD>拳掌＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>太极拳经</TH>
+    <TD>内力30武力30拳掌20</TD>
+    <TD>拳掌＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>龙象般若功</TH>
+    <TD>需阳派内力内力180武力60拳掌60资质60</TD>
+    <TD>拳掌＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>太玄经</TH>
+    <TD>仅不识字人可练(石破天)</TD>
+    <TD>武力＋3轻功＋3防御＋3拳掌＋6</TD>
+  <TR align=middle valine="middle">
+    <TH>黯然销魂掌</TH>
+    <TD>需阴派内力内力180武力60拳掌60资质60</TD>
+    <TD>拳掌＋7</TD>
+  <TR align=middle valine="middle">
+    <TH>降龙十八掌</TH>
+    <TD>需阳派内力内力200武力65拳掌65</TD>
+    <TD>拳掌＋8 </TD></TR></TBODY></TABLE>　 <BR><BR><B>吸取内力类</B> 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH><BR></TH>
+    <TH>修炼条件</TH>
+  <TR align=middle valine="middle">
+    <TH>北冥神功</TH>
+    <TD>资质60</TD>
+  <TR align=middle valine="middle">
+    <TH>吸星大法</TH>
+    <TD>资质50</TD>
+  <TR align=middle valine="middle">
+    <TH>神木王鼎</TH>
+    <TD>资质50</TD></TR></TBODY></TABLE><BR><BR><B>剑法类</B> 
+<BR><BR>修炼某剑谱后御剑内力会提升，以后可修炼更高级剑法。 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="20%"><BR></TH>
+    <TH width="40%">修炼条件</TH>
+    <TH width="40%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>六脉神剑谱</TH>
+    <TD>仅会一阳值之人可练（段誉）</TD>
+    <TD><BR></TD>
+  <TR align=middle valine="middle">
+    <TH>松风剑谱</TH>
+    <TD>剑法20</TD>
+    <TD>御剑＋1</TD>
+  <TR align=middle valine="middle">
+    <TH>泰山十八盘</TH>
+    <TD>剑法30</TD>
+    <TD>御剑＋2</TD>
+  <TR align=middle valine="middle">
+    <TH>回峰落雁剑法</TH>
+    <TD>剑法30</TD>
+    <TD>御剑＋2</TD>
+  <TR align=middle valine="middle">
+    <TH>七星剑谱</TH>
+    <TD>武力50剑法50资质50</TD>
+    <TD>御剑＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>两仪剑法</TH>
+    <TD>武力40剑法40资质50</TD>
+    <TD>御剑＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>金蛇秘笈</TH>
+    <TD>需阴派内力武力30剑法30资质50</TD>
+    <TD>御剑＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>玉女素心剑法</TH>
+    <TD>阴派内力轻功60</TD>
+    <TD>御剑＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>苗家剑法</TH>
+    <TD>需阳派内力剑法60</TD>
+    <TD>御剑＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>太极剑法</TH>
+    <TD>剑法20资质70</TD>
+    <TD>御剑＋6</TD>
+  <TR align=middle valine="middle">
+    <TH>达摩剑谱</TH>
+    <TD>需阳派内力内力100武力50御剑20</TD>
+    <TD>御剑＋6</TD>
+  <TR align=middle valine="middle">
+    <TH>玄铁剑法</TH>
+    <TD>内力100武力60御剑50资质50</TD>
+    <TD>御剑＋7</TD>
+  <TR align=middle valine="middle">
+    <TH>辟邪剑谱</TH>
+    <TD>需阴派内力御剑20</TD>
+    <TD>御剑＋10</TD>
+  <TR align=middle valine="middle">
+    <TH>独孤九剑</TH>
+    <TD>仅得于风清扬亲传者可练（令狐冲）</TD>
+    <TD>御剑＋8</TD></TR></TBODY></TABLE><BR><BR><B>刀法类</B> 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="30%"><BR></TH>
+    <TH width="40%">修炼条件</TH>
+    <TH width="30%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>血刀经</TH>
+    <TD>需阴派内力使刀20</TD>
+    <TD>使刀＋2</TD>
+  <TR align=middle valine="middle">
+    <TH>火焰刀法</TH>
+    <TD>需阳派内力使刀30</TD>
+    <TD>使刀＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>反两仪刀法</TH>
+    <TD>使刀40资质40</TD>
+    <TD>使刀＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>狂风刀法</TH>
+    <TD>需阴派内力轻功60使刀20</TD>
+    <TD>使刀＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>胡家刀法</TH>
+    <TD>使刀20资质30</TD>
+    <TD>使刀＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>霹雳刀法</TH>
+    <TD>使刀50资质50</TD>
+    <TD>使刀＋5</TD></TR></TBODY></TABLE><BR><BR><B>其他类</B> 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH><BR></TH>
+    <TH>修炼条件</TH>
+  <TR align=middle valine="middle">
+    <TH>毒龙鞭法</TH>
+    <TD>仅会鞭法的人使用（蓝凤凰）</TD>
+  <TR align=middle valine="middle">
+    <TH>黄沙万里鞭法</TH>
+    <TD>仅会鞭法的人使用（蓝凤凰）</TD></TR></TBODY></TABLE><BR><BR><B>暗器类</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;除了施发暗器技巧的提升，修炼某类武功还可在材料足够的情况下制造出特殊的暗器，暗器不一定要等到修炼一级完毕后才会出现，在修炼过程中就会出现在物品栏中，并可以使用。 
+
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="30%"><BR></TH>
+    <TH width="40%">修炼条件</TH>
+    <TH width="30%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>满天花雨</TH>
+    <TD>任何人皆可练</TD>
+    <TD>暗器＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>含沙射影</TH>
+    <TD>暗器30</TD>
+    <TD>暗器＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>霹雳秘笈</TH>
+    <TD>暗器40</TD>
+    <TD>暗器＋5</TD>
+  <TR>
+    <TH colSpan=3>注：制造霹雳弹需要硝石</TH></TR></TBODY></TABLE><BR><BR><B>综合类</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;奇妙的武功充斥在这个无奇不有的武侠世界，这里有种武功规定资质低的人才能修炼的。 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="25%"><BR></TH>
+    <TH width="30%">修炼条件</TH>
+    <TH width="45%">修炼后</TH>
+  <TR align=middle valine="middle">
+    <TH>左右互博之术</TH>
+    <TD>资质45以下</TD>
+    <TD>攻击变为2次</TD>
+  <TR align=middle valine="middle">
+    <TH>乾坤大挪移</TH>
+    <TD>资质75以上</TD>
+    <TD>防御＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>葵花宝典</TH>
+    <TD>任何人皆可练</TD>
+    <TD>生命＋30内力＋30武力＋10速度＋10防御＋10</TD>
+  <TR align=middle valine="middle">
+    <TH>九阴真经</TH>
+    <TD>需阴派内力武力50</TD>
+    <TD>生命＋10内力＋20武力＋20速度＋5防御＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>九阳真经</TH>
+    <TD>需阳派内力武力50拳掌20</TD>
+    <TD>生命＋10内力＋50武力＋5防御＋10</TD></TR></TBODY></TABLE><BR><BR><B>武器护具</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;在配备一些武器护具后，人物的行动会受到一些限制。 
+<TABLE align=center border=1>
+  <TBODY>
+  <TR align=middle valine="middle">
+    <TH width="20%"><BR></TH>
+    <TH width="35%">装备条件</TH>
+    <TH width="45%">装备后</TH>
+  <TR align=middle valine="middle">
+    <TH>玄铁剑</TH>
+    <TD>内力100武力60御剑50</TD>
+    <TD>攻击＋15速度－15防御＋15</TD>
+  <TR align=middle valine="middle">
+    <TH>君子剑</TH>
+    <TD>速度50御剑35</TD>
+    <TD>攻击＋8速度＋10防御－5</TD>
+  <TR align=middle valine="middle">
+    <TH>淑女剑</TH>
+    <TD>速度50御剑35</TD>
+    <TD>攻击＋8速度＋10防御－5</TD>
+  <TR align=middle valine="middle">
+    <TH>真武剑</TH>
+    <TD>武力70御剑60</TD>
+    <TD>攻击＋20</TD>
+  <TR align=middle valine="middle">
+    <TH>倚天剑</TH>
+    <TD>武力70御剑60</TD>
+    <TD>攻击＋20</TD>
+  <TR align=middle valine="middle">
+    <TH>金蛇剑</TH>
+    <TD>内力50武力50御剑40</TD>
+    <TD>攻击＋10防御＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>凝碧剑</TH>
+    <TD>武力30御剑20</TD>
+    <TD>攻击＋5防御＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>白龙剑</TH>
+    <TD>武力30御剑20</TD>
+    <TD>攻击＋7</TD>
+  <TR align=middle valine="middle">
+    <TH>白虹剑</TH>
+    <TD>武力20御剑20</TD>
+    <TD>攻击＋6</TD>
+  <TR align=middle valine="middle">
+    <TH>周公剑</TH>
+    <TD>武力30御剑20</TD>
+    <TD>攻击＋4防御＋5</TD>
+  <TR align=middle valine="middle">
+    <TH>血刀</TH>
+    <TD>武力20使刀20</TD>
+    <TD>攻击＋3防御＋3</TD>
+  <TR align=middle valine="middle">
+    <TH>冷月宝刀</TH>
+    <TD>武力40使刀40</TD>
+    <TD>攻击＋9</TD>
+  <TR align=middle valine="middle">
+    <TH>屠龙刀</TH>
+    <TD>内力100武力70</TD>
+    <TD>使刀60攻击＋20速度－20防御＋20</TD>
+  <TR align=middle valine="middle">
+    <TH>绿波香霞刀</TH>
+    <TD>武力20使刀20</TD>
+    <TD>攻击＋4</TD>
+  <TR align=middle valine="middle">
+    <TH>霹雳狂刀</TH>
+    <TD>内力80武力50使刀50</TD>
+    <TD>攻击＋15速度＋10攻击＋5防御＋20</TD>
+  <TR align=middle valine="middle">
+    <TH>软猬甲</TH>
+    <TD>任何人皆可装备</TD>
+    <TD>攻击＋5防御＋20</TD>
+  <TR align=middle valine="middle">
+    <TH>金丝背心</TH>
+    <TD>任何人皆可装配</TD>
+    <TD>防御＋10</TD>
+  <TR align=middle valine="middle">
+    <TH>乌蚕衣</TH>
+    <TD>任何人皆可装配</TD>
+    <TD>防御＋15</TD>
+  <TR align=middle valine="middle">
+    <TH>鳄鱼护甲</TH>
+    <TD>任何人皆可装配</TD>
+    <TD>防御＋5</TD></TR></TBODY></TABLE>
+    </div>
+</body>
+</html>

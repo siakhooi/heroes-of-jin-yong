@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏指点</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>上手篇</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;你, 一个手无寸铁的毛头小子, 一招胡打乱撞的野球拳, 
+要在凶险莫测的江湖中立足绝非易事。稍一不慎就会落得个“失踪人口”的下场。而且《金庸群侠传》是完全开放式的, 
+不定撞那儿就会劈头盖脸的一场恶战。因此首先可别忘了那招永远有效的L ＆ S大法(LOAD ＆ 
+SAVE)来保障自己在江湖上历炼的成果噢。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;初出茅芦, 
+先到对面的河洛客栈中花一两银子向店小二打听南贤居的方位。在南贤居中, 南贤会告诉你不少有用的消息。在这里能得到一件至关重要的宝物——罗盘, 
+它能显示你的位置及你的船的座标。至此你已可以把自己的足迹留在《金庸群侠传》大陆的任何场景中。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;由于《金庸群侠传》的地图大, 
+场景非常丰富。虽然每个场景都坐标, 但建议各位务必了解它们的大致方位。为了便于记忆, 
+游戏制作者把整个大陆分成五大版块。除了西北方的大漠版块和由各岛屿组成的大海版块以外, 黄河、长江把地陆分成了自北向南三个版块。北面的为东北版块, 
+“雪山飞狐”胡斐和神秘的闯王宝藏就在那里;中间的是中原版块, 武侠故事中的名门正派, 如少林寺, 丐帮, 武当派都座落于此。南面的是江南版块, 其中有梅庄四杰, 
+蓝凤凰的五毒教等。由于这三个版块之间仅靠中部的道路连接, 因此建议玩家游戏时, 除了记住场景所在的坐标外也把它们所属的版块记下。因为这样行走江湖较有方向感, 
+不会走错路, 能节省不少时间。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;游戏开始时, 玩家很容易手足无措, 
+不知如何是好。因此及时获取各种消息是非常重要的。南贤与北丑是《金庸群侠传》中的附加人物, 他们有许多对你闯荡武林大有裨益的情报, 
+但是每一条消息都得靠一颗智慧果来交换。而且北丑这家伙提供的情报虚虚实实, 真真假假, 颠颠倒倒, 但往往又是发现秘密的关键。比如说他提到有关三大宝藏的消息, 
+害得我苦苦搜索了大半天, 结果除了从别的途径知道了闯王宝藏的确切位置外, 其它仍是一无所获, 被气得半死。此外, 
+别忘了花些小费从酒店里的小二那儿了解一些武林中人的动向。 <BR><BR><B>阵容谱</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;生存永远是第一重要的。最有效的当是邀些得力的左右手助你游走江湖。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;《金庸群侠传》中只有两个人物是刚开始就可以加入的。一是在高升客栈出现的段誉, 
+另一则是田伯光居中的田伯光。与前者结交后, 若直奔不远处的无量山洞, 段誉就能因缘际会习得六脉神剑和凌波微步, 他可是游戏初期不可缺少的好帮手, 
+又是发展《天龙八部》这一部分情节的关键角色。但奉劝各位别鲁莽的带段誉前往燕子坞, 一旦到了那儿, 这傻小子的心就飞到了王语嫣身上, 
+也不再会跟着你了。除非你已找到了大燕复国的宝物。后者虽不是什么正人君子, 但在你势单力薄的时候, 他可绝对是你冲锋陷阵时的挡箭牌。你大可以把他派足用场后, 
+再把他踢回老家去。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;我再特别推荐两位厉害角色，前者是众人皆知的厉害角色令狐冲。在游戏中当他的独孤九剑一旦练到第十层, 
+威力恐怖惊人, 杀敌范围之广, 攻敌效力之强, 令人咋舌。不过要得到他的相助也不会轻而易举, 你必须投其所好给他美酒名杯, 
+至于如何得到这些宝物就得看老兄你的造化了；后者是林平之，虽然他比较笨，但叫他学习辟邪剑法10级后，单挑老顽童可以打340多生命点，再加上左右互搏术，呵呵，各人体会。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;在《金庸群侠传》中影响角色加入的因素也不少。其中最主要的是要满足加入人物的需要, 
+好比说如果胡斐已在你的队伍中, 那么要求程灵素加入就是轻而易举的了;而若能向薛慕华出示逍遥派信物七宝戒指, 那他就会死心塌地的跟着你。其次你自身的品行也很重要, 
+若你为人行事能立于正道就能赢得虚竹、狄云等正派人士的信赖, 相反若你是个无恶不作的大魔头, 
+则可以和欧阳克、慕容复之流狼狈为奸。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;最后还要注意各人物之间的恩怨关系, 田伯光和平一指是死对头, 
+所以这两人绝对不可能同时出现在你的阵容中。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;随着游戏的深入与进行, 能加入的人物越来越多, 
+可你最多只能和五人一同闯荡江湖, 所以如何筛选组合出恰如其分的队伍就十分重要了。这里提供一些组队心得, 以供各位参考:队伍中最好有一名医士为众人疗伤解毒, 
+而游戏中共有“阎王敌”薛慕华、“杀人名医”平一指、“蝶谷医仙”胡青牛三名可起死回生的名医出现, 择其一即可。除了救死扶伤的医士外, 武艺高强的侠客剑士更不可少, 
+令狐冲、段誉、杨过都是一时之选(前提自然是其独家绝技练至十级)。此外, 一般情况下队伍中最好留有一个空位置, 它主要是为了取得并不中意角色的武功秘笈, 
+武器防具和暗器补药。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;最后, 在遣散队员时一定要记住他或她所回去的地方。否则, 
+找不回关键人物导致游戏卡住的严重后果可是会让你吃不了兜着走的噢。 <BR><BR><B>道具笈</B> 
+<BR><BR>《金庸群侠传》中的道具共分五大类。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;第一类是剧情物品, 
+其作用自是毫无疑问——推动剧情的发展与游戏的进行, 相信对金庸作品熟悉的玩家对在游戏中所出现的此类物品应该极为敏感吧。无论是鸳鸯刀还是谢逊的一撮金发, 
+恰到好处的运用这些物品将使得游戏的进行一气呵成, 
+毫无阻塞之苦。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;第二类是各类药丸。由于此类物品已是RPG中的必然部分, 
+所以《金庸群侠传》选取了十四部作品中极具代表性的药丸补剂来帮助玩家。从大补生命的黑玉断续膏, 迅速解毒的崆峒秘药回阳五龙膏, 到提升内力的白云熊胆丸, 
+增加生命最大值的千年灵芝, 林林总总近百种药剂相信能满足你的各种需求。由于战斗中使用率最高的是补充生命的药品, 
+因此我在此向大家推荐黑玉断续膏、生生造化丸、天王保命丸这三种药丸。它们可都是能在危急时刻补充数百点生命值的大补品!此外, 如果习得如子午针灸经等医书后, 
+还能自己用药材来炼药。这在激战过后弹尽粮绝却又找不到韦小宝买东西的时候, 
+可是应急良策啊。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;第三类物品——暗器, 
+当然也是取自小说。冰魄银针、黑血神针都是耳熟能详的经典暗器。不过暗器的杀伤力并不大, 
+最多在游戏前期有所作为而已。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;第四类武器防具<BR><BR>第五类武功秘笈则可以说是这个游戏的重头戏了。倚天剑、屠龙刀、碧血剑、软猬甲、九阴真经、太玄经、降龙十八掌、葵花宝典……。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;相信不用再说下去, 
+大家也都知道那些曾令侠士们叱咤江湖, 威震武林的宝刃秘笈将出现在你的冒险旅程中。不过, 这些并不是任由你来装备修炼的, 
+而是要具备一定的条件才行。越是高级的武器、越是高深的武功, 所需的条件也是越为苛刻。如装备血刀仅需武力20以上、使刀20以上即可, 
+但要使上屠龙刀则需内力100以上、武力70以上、使刀60以上。同样要修炼铁掌拳谱只需内力20以上、拳掌20以上即可, 
+而欲修炼龙象般若功则需内力180以上、武力60以上、拳掌60以上、资质60以上。最后, 告诉大家一个小秘密:游戏中韦小宝总是游走于五家客栈之间, 
+他有不少象龙象般若功和霹雳狂刀这样威力强劲的武器秘笈出售, 如果遇上了可千万别错过喔! <BR><BR><B>养成经</B> 
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;由于《金庸群侠传》的开放架式, 使可供选择的伙伴共有二十五位之多。在金庸的原著上, 
+他们当然都是响当当的人物, 个个能独挡一面。可在这里, 当他们刚加入你的队伍时, 都只是些身怀绝世密笈, 却丝毫不会运用的家伙。如何和他们一起修炼称手的功夫, 
+是主宰你以后行走江湖难易的关键之一。每个角色除生命、内力、体力、经验、攻击力、防御力外, 
+还有轻功、医疗能力、用毒能力、解毒能力、拳掌功夫、御剑能力、耍刀技巧、特殊兵器和暗器技巧等属性。后些属性的高低暗示着角色所擅长的功夫, 练密笈时需对症药, 
+否则必定事倍功半。譬如令狐冲、杨过剑术过人, 张无忌、石破天拳脚无敌, 胡斐长于刀法, 蓝凤凰、王难姑精通用毒, 
+而平一指、胡青牛却博于医术……<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;其实游戏中还有四个隐藏属性:体质, 资质, 
+声望和品德。前两者是你和其他角色共有的, 后两者则是你主角特有的。它们会随着游戏的进行, 
+遭遇的不同而改变。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;体质决定着你生命和内力升级后提升的幅度。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;资质决定你学习武术的难度和快慢。密笈的学习都有一个资质下限, 
+资质低的人连学都不能学。就算你能学了, 资质越高的, 升级所需的经验就越少, 所以学的就越快。同样一个十八泥偶内功, 令狐冲每升一级需一千点经验, 
+而石破天则需七千点!但资质差决非一无是处, 熟悉金庸作品的人应该知道这句话的意思。当你的资质低得可以时(低于45), 
+可象郭靖或是小龙女那样从百花谷老顽童处学得左右互搏之术!(到时你双手齐发, 
+保管没人会笑话你低智商!)<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;你特有的声望来自于你在江湖上的所做所为, 
+你可于北丑居的水晶球中得知它的数值。声望越高, 
+将会有更多的伙伴愿意加入你的阵营。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;品德决定着你的正或邪, 
+初期你可从南贤居的镜子中得知你的品德为50, 此时你为非正非邪。而以后你的一举一动将会影响你的前途, 是正是邪取决于你的一念之间。走正道, 
+那是大多数人的选择。那你首先必须慎重择友, 毕竟物以类聚, 人以群分嘛。田伯光、欧阳克等绝非善类, 若交之会使你品德大跌。其次, 
+拿取物品得经过主人的允许。切切不可象以往的RPG那样:一进屋, 不管有人没人, 翻箱倒柜, 不得宝物不罢休!接着, 你便要行侠仗义, 扬善罚恶。如遇不平, 
+可打之;如有恩冤, 可化之。尽善尽职做到大侠本份。(提醒大家一声, 有句话说得好:做好事不难, 难的是要一辈子做好事!)如果想走邪道, 
+那可容易的多。狐朋狗友任君挑之, 打架劫舍亦可为之。心情不好, 无事也可生非;心情不坏, 做一两件好事亦无不可。说实在的, 
+做坏人是比做好人“潇洒”多了!(不过, 坏人的下场似乎都……)<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;话说回来, 不管你是好人还是坏人, 
+功夫总是要练的。《金庸群侠传》中网罗了十四部著作的数十种武功密笈供玩友修习。但练功夫也必须从基本功练起, 
+所以应先练内功类、轻功类、暗器类和医书类密笈。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;内功类中的精华首推十八泥偶和小无相功。因为武功之道分为阴阳两类, 
+一般人难以调和阴阳, 故只能修习一类功夫。但十八泥偶和小无相功却能融阴阳于一体, 修炼后其他武功无论是阴或阳皆可任意习之, 
+岂不快哉!<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;轻功类只有梯云纵心法、神行百变和凌波微步, 
+三者各有所长。玩友应给那些初期轻功不好者多多修练轻功, 否则即使你武功再好, 
+战斗时来不及走到敌人面前也是枉然。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;而暗器类和医书类是供那些有这方面专长的人练习的。<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;基础打好后, 
+该学些更为精深的功夫了, 其中有拳掌类、刀剑类和特殊类武功, 
+而按它们出招的方式又可分为点攻击、线攻击和面攻击。点攻击中威力较大当属降龙十八掌和辟邪剑;六脉神剑想必大家都很熟悉了, 
+它就是线攻击中的典范;面攻击则是以一敌众的致胜法宝, 其中以九阳神功最为精采实用。 <BR><BR>
+<H4 align=center><B>笑看金庸下笔处 <BR>且听群雄任侠时</B></H4>
+<P>&nbsp;&nbsp;&nbsp;&nbsp;《金庸群侠传》在剧情、战斗等各方面的考量都合理得当, 改编部分也较好的融入到了游戏中, 
+不觉生硬。开场的一段三维动画作得有声有色。游戏中的场景人物充满了中国画风, 令人倍感亲切。战斗时五花八门的绝招动画魄力十足, 加上现场感强烈的音效, 
+让人乐此不疲。总之, 《金庸群侠传》的出现已经动摇了《仙剑奇侠传》武侠游戏盟主的地位, 且大有与之分庭抗礼之势。但究竟能否取而代之, 
+还要看广大玩家的偏好取向了。</P>
+    </div>
+</body>
+</html>

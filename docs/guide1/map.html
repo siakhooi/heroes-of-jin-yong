@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳完全攻略：座標列表</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Coordinates styling */
+        .menu a[href^="item.html"], .content a[href^="item.html"] {
+            color: #98d98c;
+            font-family: monospace;
+            font-size: 0.95em;
+        }
+
+        .menu a[href^="item.html"]:hover, .content a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links */
+        .menu a[href^="char.html"], .content a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .menu a[href^="char.html"]:hover, .content a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links */
+        .menu a[href^="skill.html"], .content a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .menu a[href^="skill.html"]:hover, .content a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+
+        /* Tables container */
+        .tables {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tables table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .tables th, .tables td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tables th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .tables tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tables a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .tables a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Location links in tables */
+        .tables a[href^="item.html"] {
+            color: #98d98c;
+        }
+
+        .tables a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links in tables */
+        .tables a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .tables a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links in tables */
+        .tables a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .tables a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* FAQ links in tables */
+        .tables a[href^="faq.html"] {
+            color: #ff9f7f;
+        }
+
+        .tables a[href^="faq.html"]:hover {
+            background: rgba(255, 159, 127, 0.2);
+        }
+
+        .tables li {
+            margin-bottom: 0.5rem;
+            list-style-position: inside;
+        }
+
+        .tables hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 2rem 0;
+        }
+
+
+        /* Tables container */
+        .tables {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tables table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .tables th, .tables td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .tables th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .tables tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tables a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .tables a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Location links in tables */
+        .tables a[href^="item.html"] {
+            color: #98d98c;
+        }
+
+        .tables a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links in tables */
+        .tables a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .tables a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links in tables */
+        .tables a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .tables a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* FAQ links in tables */
+        .tables a[href^="faq.html"] {
+            color: #ff9f7f;
+        }
+
+        .tables a[href^="faq.html"]:hover {
+            background: rgba(255, 159, 127, 0.2);
+        }
+
+        .tables li {
+            margin-bottom: 0.5rem;
+            list-style-position: inside;
+        }
+
+        .tables hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 2rem 0;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="book.html">十四天書攻略</a>
+            <a href="faq.html">常見問題集</a>
+            <a href="map.html">座標</a>
+            <a href="item.html">物品</a>
+            <a href="char.html">人物</a>
+            <a href="skill.html">武功</a>
+            <a href="drug.html">鍊丹</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <DIV class=title>
+<H2>座標列表 </H2>
+<HR>
+</DIV>
+<DIV class=tables>
+<TABLE cellSpacing=0 cellPadding=3 border=1>
+  <TBODY>
+  <TR>
+    <TD><A 
+      href="item.html#主角居">主角居</A><BR>(357,235)</TD>
+    <TD><A 
+      href="item.html#南賢居">南賢居</A><BR>(388,325)</TD>
+    <TD><A 
+      href="item.html#北丑居">北丑居</A><BR>(51,109)</TD>
+    <TD><A 
+      href="item.html#海邊小屋">海邊小屋</A><BR>(286,157)</TD>
+    <TD><A 
+      href="item.html#霹靂堂">霹靂堂</A><BR>(409,217)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#河洛客棧">河洛客棧</A><BR>(358,229)</TD>
+    <TD><A 
+      href="item.html#高昇客棧">高昇客棧</A><BR>(199,401)</TD>
+    <TD><A 
+      href="item.html#有間客棧">有間客棧</A><BR>(78,141)</TD>
+    <TD><A 
+      href="item.html#悅來客棧">悅來客棧</A><BR>(221,286)</TD>
+    <TD><A 
+      href="item.html#龍門客棧">龍門客棧</A><BR>(102,374)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#胡斐居">胡斐居</A><BR>(86,94)</TD>
+    <TD><A 
+      href="item.html#閻基居">閻基居</A><BR>(396,374)</TD>
+    <TD><A 
+      href="item.html#苗人鳳居">苗人鳳居</A><BR>(223,187)</TD>
+    <TD><A 
+      href="item.html#藥王莊">藥王莊</A><BR>(323,318)</TD>
+    <TD><A 
+      href="item.html#闖王寶藏">闖王寶藏</A><BR>(64,51)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#泰山派">泰山派</A><BR>(193,139)</TD>
+    <TD><A 
+      href="item.html#恆山派">恆山派</A><BR>(122,215)</TD>
+    <TD><A 
+      href="item.html#衡山派">衡山派</A><BR>(355,376)</TD>
+    <TD><A 
+      href="item.html#嵩山派">嵩山派</A><BR>(242,293)</TD>
+    <TD><A 
+      href="item.html#華山派">華山派</A><BR>(193,303)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#梅莊">梅莊</A><BR>(330,196)</TD>
+    <TD><A 
+      href="item.html#平一指居">平一指居</A><BR>(215,196)</TD>
+    <TD><A 
+      href="item.html#田伯光居">田伯光居</A><BR>(385,306)</TD>
+    <TD><A 
+      href="item.html#福威鏢局">福威鏢局</A><BR>(369,258)</TD>
+    <TD><A 
+      href="item.html#青城派">青城派</A><BR>(185,370)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#黑木崖">黑木崖</A><BR>(118,178)</TD>
+    <TD><A 
+      href="item.html#武道大會">武道大會</A><BR>(192,295)</TD>
+    <TD><A 
+      href="item.html#思過崖">思過崖</A><BR>(187,301)</TD>
+    <TD><A 
+      href="item.html#浡泥島">浡泥島</A><BR>(278,43)</TD>
+    <TD><A 
+      href="item.html#金蛇山洞">金蛇山洞</A><BR>(194,292)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#少林寺">少林寺</A><BR>(247,300)</TD>
+    <TD><A 
+      href="item.html#武當山">武當山</A><BR>(226,349)</TD>
+    <TD><A 
+      href="item.html#峨嵋派">峨嵋派</A><BR>(216,408)</TD>
+    <TD><A 
+      href="item.html#崆峒派">崆峒派</A><BR>(161,314)</TD>
+    <TD><A 
+      href="item.html#崑崙派">崑崙派</A><BR>(42,420)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#崑崙仙境">張無忌山洞</A><BR>(22,440)</TD>
+    <TD><A 
+      href="item.html#崑崙仙境">崑崙仙境</A><BR>(22,440)</TD>
+    <TD><A 
+      href="item.html#冰火島">冰火島</A><BR>(103,16)</TD>
+    <TD><A 
+      href="item.html#靈蛇島">靈蛇島</A><BR>(187,63)</TD>
+    <TD><A 
+      href="item.html#蝴蝶谷">蝴蝶谷</A><BR>(238,219)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#成崑居">成崑居</A><BR>(18,249)</TD>
+    <TD><A 
+      href="item.html#光明頂">光明頂</A><BR>(68,397)</TD>
+    <TD><A 
+      href="item.html#明教分舵">明教分舵</A><BR>(76,363)</TD>
+    <TD><A 
+      href="item.html#沙漠廢墟">沙漠廢墟</A><BR>(53,219)</TD>
+    <TD><A 
+      href="item.html#五毒教">五毒教</A><BR>(247,424)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#程瑛居">程瑛居</A><BR>(295,422)</TD>
+    <TD><A 
+      href="item.html#黑龍潭">黑龍潭</A><BR>(304,351)</TD>
+    <TD><A 
+      href="item.html#一燈居">一燈居</A><BR>(314,370)</TD>
+    <TD><A 
+      href="item.html#百花谷">百花谷</A><BR>(159,271)</TD>
+    <TD><A 
+      href="item.html#桃花島">桃花島</A><BR>(341,138)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#洪七公居">洪七公居</A><BR>(169,210)</TD>
+    <TD><A 
+      href="item.html#鐵掌山">鐵掌山</A><BR>(302,343)</TD>
+    <TD><A 
+      href="item.html#白駝山">白駝山</A><BR>(141,433)</TD>
+    <TD><A 
+      href="item.html#絕情谷">絕情谷</A><BR>(134,259)</TD>
+    <TD><A 
+      href="item.html#絕情谷底">絕情谷底</A><BR>(132,254)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#楊過山洞">楊過山洞</A><BR>(68,170)</TD>
+    <TD><A 
+      href="item.html#古墓">古墓</A><BR>(144,218)</TD>
+    <TD><A 
+      href="item.html#重陽宮">重陽宮</A><BR>(145,217)</TD>
+    <TD><A 
+      href="item.html#金輪寺">金輪寺</A><BR>(103,397)</TD>
+    <TD><A 
+      href="item.html#回族部落">回族部落</A><BR>(120,343)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#燕子塢">燕子塢</A><BR>(308,197)</TD>
+    <TD><A 
+      href="item.html#丐幫">丐幫</A><BR>(215,259)</TD>
+    <TD><A 
+      href="item.html#無量山">無量山</A><BR>(168,426)</TD>
+    <TD><A 
+      href="item.html#擂鼓山">擂鼓山</A><BR>(177,221)</TD>
+    <TD><A 
+      href="item.html#薛慕華居">薛慕華居</A><BR>(192,260)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#星宿海">星宿海</A><BR>(132,410)</TD>
+    <TD><A 
+      href="item.html#萬鱷島">萬鱷島</A><BR>(432,125)</TD>
+    <TD><A 
+      href="item.html#雲鶴崖">雲鶴崖</A><BR>(17,15)</TD>
+    <TD><A 
+      href="item.html#破廟">破廟</A><BR>(19,180)</TD>
+    <TD><A 
+      href="item.html#冰蠶山洞">冰蠶山洞</A><BR>(22,449)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#凌霄城">凌霄城</A><BR>(166,404)</TD>
+    <TD><A 
+      href="item.html#摩天崖">摩天崖</A><BR>(186,338)</TD>
+    <TD><A 
+      href="item.html#俠客島">俠客島</A><BR>(455,328)</TD>
+    <TD><A 
+      href="item.html#蜘蛛山洞">蜘蛛山洞</A><BR>(75,226)</TD>
+    <TD><A 
+      href="item.html#鴛鴦刀山洞">鴛鴦刀山洞</A><BR>(425,38)</TD>
+  <TR>
+    <TD><A 
+      href="item.html#大輪寺">大輪寺</A><BR>(114,297)</TD>
+    <TD><A 
+      href="item.html#天寧寺">天寧寺</A><BR>(329,237)</TD>
+    <TD><A 
+      href="item.html#唐詩山洞">唐詩山洞</A><BR>(364,279)</TD>
+    <TD><A 
+      href="item.html#神龍教">神龍教</A><BR>(141,113)</TD>
+    <TD><A 
+      href="item.html#山洞">山洞</A><BR>(172,425)</TD></TR></TBODY></TABLE></DIV>
+
+        <div class="copyright">
+            <p>資料來源：雙子貓的世界</p>
+        </div>
+    </div>
+</body>
+</html>

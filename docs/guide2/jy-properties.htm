@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人物属性</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <B>&nbsp;&nbsp;&nbsp;&nbsp;人物属性值分为状态栏中可见的一般属性值及隐藏性的属性值，在升级或经过修炼后这些属性数值就会变化。</B>
+<BR><BR><B>一般属性:</B>
+<BR><BR><B>等级</B><BR>若队员没有因伤亡而退出战斗，打完一仗即可得到一些经验点数，达到所需的经验点数就可以升一级，升级后人物的某些属性值就会上升，即能力加强。每个人物最高可升级到30级，到了升级的极限，就不在往上升。不幸提早离场的人员，仍可因其之前的某些动作效果，获得少许经验值。
+<BR><BR><B>生命</B><BR>人物的生命值，在此可见到两个数字，例如250/999，前面的数字代表目前人物的生命状态，后面的代表此人在这个等级的最大生命值。您会看见数字有颜色的变化，当前面的数字，即目前的生命值出现红色时，代表此人在受伤的状态，粉红色是轻微受伤，红色越深代表受伤越重，此时生命值也会比较低，这种状况的人物如果正在战斗中攻击能力会下降，防御力也会减弱，所以您要赶快休息或医疗。当后面的数字，即最大生命值出现绿色时，表示人物目前正在中毒当中，如果您看见生命栏中的两个数字又有红、又有绿时，那就是说人物又受伤又中毒了，如果在战斗中您不医疗、休息或以丹药治疗，每个回合生命值就会稍稍降个几点。
+<BR><BR><B>内力</B><BR>内力是人物施展各项武功都会耗去一些。您可发现内力值这里也有颜色的变化，而是因人而异的，如果从人练的武功是走阴柔一派的，数字会呈紫色；如果是专攻阳刚一路的，是呈黄色的；而阴阳两种皆可练或是可以练那种阴阳调和之功，他的数字是呈白色的。这里要注意的是有的人本来是走阴柔或阳刚任一路线的，但经过修炼某种功夫后，如练过小无相功或十八泥偶，会变成塑性比较大的综合性内功，即阴阳两种皆可练。
+<BR><BR><B>体力</B><BR>在平时体力要50以上，医疗能力才有效。在战斗中要特别注意体力一项，如下：
+<BR><BR>战斗时移动－－体力5以上才能做 <BR>战斗时攻击－－体力10以上才能做 <BR>战斗时使毒－－体力20以上才能做
+<BR>战斗时医疗－－体力50以上才能做
+<BR><BR><B>经验</B><BR>目前所拥有的经验点数，人物只能在战斗中获得经验点数，一场战斗如果有许多人参加，则所有经验点数会依表现分配。当人物在战斗中获得经验点数，会有部分拨为升级即提升能力所用，如果此人正在修炼某项武功，还会有部分拨入修炼所需的经验点数，增加修炼的层次。
+<BR><BR><B>升级</B><BR>这里显示的是下一次升级所需要的点数，每次都不同，但数值当然是越来越高。如果出现“＝”这个符号表示已经到了极限，即使经验值上升也不能在升级。
+<BR><BR><B>攻击力</B><BR>如果有配备武器，会增加攻击力；最高值为100。如果已到达最高值，又持有特殊的武器，还是会额外增加攻击力，但人物本身之基本攻击力（武力）数值最高仍为100不变，不会因为一直的修炼而增加。
+<BR><BR><B>防御力</B><BR>如果有配备防具，会增加防御力；最高值为100。如果已到达最高值，又持有特殊的防具，会有额外的防御力产生，但人物本身之基本防御力最高仍为100
+不变，不会因为修炼而增加。 <BR><BR><B>轻功</B><BR>轻功代表战斗中可移动的步数，轻功高的人在战斗中可优先开始行动。最高为100。
+<BR><BR><B>医疗能力</B><BR>代表人物可医疗他人的能力值。但如果人物受伤太重，与此数值相差太多，施用此能力就会失效。最高为100。
+<BR><BR><B>用毒能力</B><BR>代表人物可以施毒的能力值。数值越高，施毒越容易成功，也代表此人对用毒有心得，修炼毒经此方面的武功比较容易成功。最高为100。
+<BR><BR><B>解毒能力</B><BR>代表人物可以解去他人中毒情况的能力。但如果人物中毒太深，与此数值相差太多，就可能无法解他人之毒。最高为100。
+<BR><BR><B>拳掌功夫</B><BR>此数值越高，表示人物在拳掌这方面学习能力强，你可以参考让此人修炼关于拳掌这方面的武功秘籍。最高为100。
+<BR><BR><B>御剑能力</B><BR>此数值越高，表示人物对御剑很有心得，修炼这方面的武功比较容易成功。最高为100。
+<BR><BR><B>耍刀技巧</B><BR>此数值越高，表示人物对耍刀很有心得，修炼这刀法等方面的武功比较容易成功。最高为100。
+<BR><BR><B>特殊兵器</B><BR>刀、剑以外的兵器，如蓝凤凰的鞭子，岳老三的大剪刀等，就归类在特殊兵器，某些人施用特殊兵器特别有心得，也就是说修炼这方面的武功特别容易成功。最高为100。不过站长从来就修炼不上此属性，不知此属性是不是虚设？？欢迎大家讨论!
+<BR><BR><B>暗器技巧</B><BR>只有在战斗中才可使用暗器，此项数值高代表人物施用暗器技巧强，暗器不但发得远，还打得准。最高为100。
+<BR><BR><BR><B>隐藏属性:</B> <BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>体质, 资质,
+声望</B>和<B>品德</B>。前两者是你和其他角色共有的, 后两者则是你主角特有的。它们会随着游戏的进行, 遭遇的不同而改变。
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>体质</B>决定着你生命和内力升级后提升的幅度。
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>资质</B>决定你学习武术的难度和快慢。密笈的学习都有一个资质下限,
+资质低的人连学都不能学。就算你能学了, 资质越高的, 升级所需的经验就越少, 所以学的就越快。同样一个十八泥偶内功, 令狐冲每升一级需一千点经验,
+而石破天则需七千点!但资质差决非一无是处, 熟悉金庸作品的人应该知道这句话的意思。当你的资质低得可以时(低于45),
+可象郭靖或是小龙女那样从百花谷老顽童处学得左右互搏之术!(到时你双手齐发, 保管没人会笑话你低智商!)
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;你特有的<B>声望</B>来自于你在江湖上的所做所为,
+你可于北丑居的水晶球中得知它的数值。声望越高, 将会有更多的伙伴愿意加入你的阵营。
+<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;<B>品德</B>决定着你的正或邪, 初期你可从南贤居的镜子中得知你的品德为50,
+此时你为非正非邪。而以后你的一举一动将会影响你的前途, 是正是邪取决于你的一念之间。走正道, 那是大多数人的选择。那你首先必须慎重择友, 毕竟物以类聚,
+人以群分嘛。田伯光、欧阳克等绝非善类, 若交之会使你品德大跌。其次, 拿取物品得经过主人的允许。切切不可象以往的RPG那样:一进屋, 不管有人没人, 翻箱倒柜,
+不得宝物不罢休!接着, 你便要行侠仗义, 扬善罚恶。如遇不平, 可打之;如有恩冤, 可化之。尽善尽职做到大侠本份。(提醒大家一声, 有句话说得好:做好事不难,
+难的是要一辈子做好事!)如果想走邪道, 那可容易的多。狐朋狗友任君挑之, 打架劫舍亦可为之。心情不好, 无事也可生非;心情不坏,
+做一两件好事亦无不可。说实在的, 做坏人是比做好人“潇洒”多了!(不过, 坏人的下场似乎都……)
+但是，有些情况是非不得已的：例如，在刚开始名望人气不够的你，，只能找到一些德行差劲但武功不错的家伙加入，让他们在战斗中助你一臂之力；而有的时候也必须在某些场景中不顾道德做些翻箱倒柜的小偷行径，这些都会影响道德指数。道德在这个武侠世界中是很微妙的东西，可以说没什么很硬性的标准，你可以利用以上的建议去做事，也可以用自己的方式去创建另一套行事标准，总之常常照南贤居那面镜子，可以警惕自己。
+    </div>
+</body>
+</html>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金庸群俠傳完全攻略：何處尋何物</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Coordinates styling */
+        .menu a[href^="item.html"], .content a[href^="item.html"] {
+            color: #98d98c;
+            font-family: monospace;
+            font-size: 0.95em;
+        }
+
+        .menu a[href^="item.html"]:hover, .content a[href^="item.html"]:hover {
+            background: rgba(152, 217, 140, 0.2);
+        }
+
+        /* Character links */
+        .menu a[href^="char.html"], .content a[href^="char.html"] {
+            color: #ffcc66;
+        }
+
+        .menu a[href^="char.html"]:hover, .content a[href^="char.html"]:hover {
+            background: rgba(255, 204, 102, 0.2);
+        }
+
+        /* Skill links */
+        .menu a[href^="skill.html"], .content a[href^="skill.html"] {
+            color: #c9a0ff;
+        }
+
+        .menu a[href^="skill.html"]:hover, .content a[href^="skill.html"]:hover {
+            background: rgba(201, 160, 255, 0.2);
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="book.html">十四天書攻略</a>
+            <a href="faq.html">常見問題集</a>
+            <a href="map.html">座標</a>
+            <a href="item.html">物品</a>
+            <a href="char.html">人物</a>
+            <a href="skill.html">武功</a>
+            <a href="drug.html">鍊丹</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <DIV class=title>
+<H2>何處尋何物 </H2>
+<HR>
+</DIV>
+<DIV class=menu>
+<H4><A name=雲鶴崖></A>雲鶴崖(17,15)</H4>
+<P>玉洞黑石丹、白雲熊鶴丸、菩提子、<A 
+href="item.html#山洞">鐵鑰匙</A>、藥材、智慧果、<A 
+href="item.html#海邊小屋">兔肉</A>。 </P>
+<H4><A name=成崑居></A>成崑居(18,249)</H4>
+<P>鎮心理氣丸、智慧果、藥材、<A 
+href="item.html#海邊小屋">小豬耳朵</A>、毒蒺菱。成崑[641]，殺之得<A 
+href="item.html#冰火島">成崑頭顱</A>。 </P>
+<H4><A name=破廟></A>破廟(19,180)</H4>
+<P>用<A href="item.html#冰蠶山洞">千年冰蠶</A>招募<A 
+href="char.html#阿紫">阿紫</A>和<A 
+href="char.html#游坦之">游坦之</A>得<A 
+href="skill.html#吸內力">神木王鼎</A>、<A 
+href="skill.html#內功">易筋經</A>，道德需低於45。從右邊的小徑可以到後面盜墓，用<A 
+href="item.html#蝴蝶谷">鐵鏟</A>挖掘<A 
+href="item.html#梅莊">廣陵散</A>。 </P>
+<H4><A name=崑崙仙境></A>崑崙仙境,張無忌山洞(22,440)</H4>
+<P>把<A href="item.html#冰火島">金毛</A>給<A 
+href="char.html#張無忌">張無忌</A>即可招募。加入後得三黃寶蠟丹、牛黃血竭丹、藥材、<A 
+href="skill.html#綜合">九陽真經</A>。樹上有大蟠桃，洞內有硝石。 
+</P>
+<H4><A name=冰蠶山洞></A>冰蠶山洞(22,449)</H4>
+<P><A 
+href="item.html#破廟">千年冰蠶</A>、天山雪蓮、硝石。 
+</P>
+<H4><A name=崑崙派></A>崑崙派(42,420)</H4>
+<P>何太沖[356]。得銀兩、生生造化丹、智慧果。 </P>
+<H4><A name=北丑居></A>北丑居(51,109)</H4>
+<P>水晶球可知名望。右箱用<A 
+href="item.html#沙漠廢墟">銀鑰匙</A>得伏苓首烏丸，左箱用<A 
+href="item.html#華山派">金鑰匙</A>得黑玉斷續膏。 <A 
+href="item.html#唐詩山洞">唐詩選輯</A>拿來泡水，得知<A 
+href="item.html#天寧寺">天寧寺</A>事件。 </P>
+<H4><A name=沙漠廢墟></A>沙漠廢墟(53,219)</H4>
+<P>推開箱子進入高昌迷宮，帶<A 
+href="item.html#楊過山洞">玄鐵劍</A>破門而入，得天山雪蓮、<A 
+href="item.html#北丑居">銀鑰匙</A>、黑血神針、智慧果、<A 
+href="book.html#bookf">白馬嘯西風</A>。 </P>
+<H4><A name=闖王寶藏></A>闖王寶藏(64,51)</H4>
+<P>用<A 
+href="item.html#胡斐居">闖王軍刀</A>開門得千年人蔘、<A 
+href="book.html#bookb">雪山飛狐</A>、<A 
+href="skill.html#暗器">滿天花雨</A>、<A 
+href="item.html#鴛鴦刀山洞">鴦刀</A>、銀兩、金絲背心。洞內有硝石。 
+</P>
+<H4><A name=楊過山洞></A>楊過山洞(68,170)</H4>
+<P>巨蟒[425]，得蛇膽。用<A 
+href="item.html#絕情谷">斷腸草</A>救<A 
+href="char.html#楊過">楊過</A>得<A 
+href="item.html#百花谷">玉蜂漿</A>、加入得<A 
+href="item.html#沙漠廢墟">玄鐵劍</A>、<A 
+href="skill.html#劍法">玄鐵劍法</A>。洞內有硝石。 </P>
+<H4><A name=光明頂></A>光明頂(68,397)</H4>
+<P>韋一笑[200]、殷天正[275]、玄慈[524]、滅絕[260]、何太沖[356]、唐文亮[290]。得<A 
+href="item.html#冰火島">明教鐵燄令</A>、破聖火陣得<A 
+href="book.html#bookl">倚天屠龍記</A>。 </P>
+<H4><A name=蜘蛛山洞></A>蜘蛛山洞(75,226)</H4>
+<P>打一堆蜘蛛後得<A 
+href="item.html#摩天崖">玄冰碧火酒</A>，<A 
+href="skill.html#其他">黃沙萬里鞭法</A>。洞內有硝石。 
+</P>
+<H4><A name=明教分舵></A>明教分舵(76,363)</H4>
+<P>楊逍[308]、成崑[641]。得牛黃血竭丹、黑血神針、智慧果、黑玉斷續膏。地道得<A 
+href="skill.html#綜合">乾坤大挪移</A>及陽頂天遺言。 
+</P>
+<H4><A name=有間客棧></A>有間客棧(78,141)</H4>
+<P><A href="faq.html#韋小寶">韋小寶</A>出沒之地。 
+</P>
+<H4><A name=胡斐居></A>胡斐居(86,94)</H4>
+<P><A 
+href="char.html#胡斐">胡斐</A>初期可拿來練功，給他<A 
+href="item.html#閻基居">兩頁刀譜</A>即可加入，加入後得<A 
+href="skill.html#刀法">胡家刀法</A>、<A 
+href="item.html#闖王寶藏">闖王軍刀</A>、小還丹、人蔘、飛刀、銀兩。 
+</P>
+<H4><A name=龍門客棧></A>龍門客棧(102,374)</H4>
+<P>道德大於70可招募<A 
+href="char.html#虛竹">虛竹</A>。 </P>
+<H4><A name=冰火島></A>冰火島(103,16)</H4>
+<P>床上有一撮<A 
+href="item.html#崑崙仙境">金毛</A>。用<A 
+href="item.html#光明頂">明教鐵燄令</A>和<A 
+href="item.html#成崑居">成崑頭顱</A>請謝遜回中原。洞內有硝石。 
+</P>
+<H4><A name=金輪寺></A>金輪寺(103,397)</H4>
+<P>見<A 
+href="item.html#回族部落">霍青桐</A>之前番僧可拿來練功。金輪法王[695]。得<A 
+href="item.html#回族部落">可蘭經</A>、<A 
+href="skill.html#刀法">火焰刀法</A>、銀兩、藥材、九轉靈寶丸、冰魄銀針、小還丹、智慧果。 
+</P>
+<H4><A name=恆山派></A>恆山派(112,215)</H4>
+<P>定閒[176]。 </P>
+<H4><A name=大輪寺></A>大輪寺(114,297)</H4>
+<P>打番僧得橘鑰匙救<A 
+href="char.html#狄雲">狄雲</A>，得知<A 
+href="item.html#唐詩山洞">唐詩山洞</A>座標。得銀兩、智慧果、六陽正氣丹、飛蝗石、硝石。狄雲加入得血刀、烏蠶衣、<A 
+href="skill.html#刀法">血刀大法</A>、<A 
+href="skill.html#內功">神照經</A>。 </P>
+<H4><A name=黑木崖></A>黑木崖(118,178)</H4>
+<P>持<A 
+href="item.html#梅莊">黑木令牌</A>進入，打東方不敗[992]及梅莊四莊主丹青生[272]、禿筆翁[262]、黑白子[500]、黃鐘公[434]，得<A 
+href="book.html#bookh">笑傲江湖</A>。打五獄劍派天門[272]、定閒[176]、莫大[314]、岳不群[452]、左冷禪[548]。勝任我行[772]得<A 
+href="skill.html#綜合">葵花寶典</A>。 </P>
+<H4><A name=回族部落></A>回族部落(120,343)</H4>
+<P>與霍青桐交談後金輪法王會回<A 
+href="item.html#金輪寺">金輪寺</A>。還她<A 
+href="item.html#金輪寺">可蘭經</A>可得<A 
+href="book.html#booki">書劍恩仇錄</A>。 </P>
+<H4><A name=絕情谷底></A>絕情谷底(132,254)</H4>
+<P>帶<A href="char.html#楊過">楊過</A>找<A 
+href="char.html#小龍女">小龍女</A>。要先研究<A 
+href="item.html#百花谷">周伯通</A>的蜜蜂才進得來。 </P>
+<H4><A name=星宿海></A>星宿海(132,410)</H4>
+<P>丁春秋[668]、<A 
+href="item.html#海邊小屋">羊羔坐臀</A>。要先帶<A 
+href="char.html#虛竹">虛竹</A>去<A 
+href="item.html#擂鼓山">擂鼓山</A>才打得起來。 </P>
+<H4><A name=絕情谷></A>絕情谷(134,259)</H4>
+<P>君子劍、淑女劍、<A 
+href="item.html#燕子塢">大燕國玉璽</A>、藥材、智慧果、<A 
+href="item.html#楊過山洞">斷腸草</A>、無常丹、玉蜂針。 
+</P>
+<H4><A name=神龍教></A>神龍教(141,113)</H4>
+<P>洪教主[695]。見過教主再去<A 
+href="item.html#五毒教">五毒教</A>，回來打一場可得<A 
+href="book.html#bookg">鹿鼎記</A>。 </P>
+<H4><A name=白駝山></A>白駝山(141,433)</H4>
+<P>歐陽克[308]。可拿來練功，會增加道德。得<A 
+href="item.html#悅來客棧">翡翠杯</A>、智慧果、冰魄銀針。若招募<A 
+href="char.html#歐陽克">歐陽克</A>則會降低道德。 </P>
+<H4><A name=古墓></A>古墓(144,218)</H4>
+<P><A href="char.html#楊過">楊過</A>加入得<A 
+href="skill.html#拳掌">黯然銷魂掌</A>、<A 
+href="char.html#小龍女">小龍女</A>加入得<A 
+href="skill.html#劍法">玉女素心劍法</A>。得天山雪蓮、玉蜂針、<A 
+href="book.html#bookj">神鵰俠侶</A>、<A 
+href="skill.html#綜合">九陰真經</A>。 </P>
+<H4><A name=重陽宮></A>重陽宮(145,217)</H4>
+<P>丘處機[335]。敗給他可以得到<A 
+href="skill.html#劍法">七星劍譜</A>。 </P>
+<H4><A name=百花谷></A>百花谷(159,271)</H4>
+<P>周伯通[776]。可拿來練功。給他<A 
+href="item.html#楊過山洞">玉蜂漿</A>後再進來一次，開<A 
+href="item.html#絕情谷底">絕情谷底</A>。促使周伯通與瑛姑團圓可得<A 
+href="faq.html#左右互搏">左右互搏</A>。 </P>
+<H4><A name=崆峒派></A>崆峒派(161,314)</H4>
+<P>唐文亮[290]。得銀兩、回陽五龍膏、智慧果、飛蝗石、玉洞黑石丹。 </P>
+<H4><A name=凌霄城></A>凌霄城(166,404)</H4>
+<P>白萬劍[182]。得<A 
+href="item.html#俠客島">賞善罰惡令</A>、白虹劍。 </P>
+<H4><A name=無量山></A>無量山(168,426)</H4>
+<P>帶<A href="char.html#段譽">段譽</A>見神仙姊姊得<A 
+href="skill.html#輕功">凌波微步</A>、<A 
+href="skill.html#吸內力">北冥神功</A>。段譽學會北冥神功，武力+10、輕功+30、資質+20。出洞遇莽牿朱蛤。洞內有硝石。 
+</P>
+<H4><A name=洪七公居></A>洪七公居(169,210)</H4>
+<P>請洪七公吃<A 
+href="item.html#海邊小屋">玉笛誰家聽落梅</A>得<A 
+href="skill.html#拳掌">降龍十八掌</A>。屋內有天心解毒丹、智慧果、田七鯊膽散、九花玉露丸。 
+</P>
+<H4><A name=山洞></A>山洞(172,425)</H4>
+<P>用<A href="item.html#雲鶴崖">鐵鑰匙</A>、<A 
+href="item.html#萬鱷島">銅鑰匙</A>，得智慧果。洞內有硝石。 
+</P>
+<H4><A name=擂鼓山></A>擂鼓山(177,221)</H4>
+<P>帶<A href="char.html#虛竹">虛竹</A>去下棋，得<A 
+href="skill.html#拳掌">天山六陽掌</A>、<A 
+href="skill.html#內功">小無相功</A>、<A 
+href="item.html#薛慕華居">七寶指環</A>。虛竹學會天山六陽掌，武力+30、輕功+20、內力+300。 
+</P>
+<H4><A name=青城派></A>青城派(185,370)</H4>
+<P>余滄海[230]。得銀兩、藥材、精氣丸、小還丹、人蔘、黃蓮解毒丸、智慧果、毒菱蒺。打完余滄海後找左邊的青城弟子講話，得林震南遺言。若隊伍中有<A 
+href="char.html#林平之">林平之</A>，他會單挑青城派。 
+</P>
+<H4><A name=摩天崖></A>摩天崖(186,338)</H4>
+<P>用<A href="item.html#蜘蛛山洞">玄冰碧火酒</A>救<A 
+href="char.html#石破天">石破天</A>。石破天加入得<A 
+href="skill.html#內功">十八泥偶</A>、白龍劍。 </P>
+<H4><A name=靈蛇島></A>靈蛇島(187,63)</H4>
+<P>金花婆婆[230]。可拿來練功。打敗金花婆婆救<A 
+href="char.html#王難姑">王難姑</A>，得知<A 
+href="item.html#蝴蝶谷">蝴蝶谷</A>所在。得<A 
+href="item.html#海邊小屋">獐腿肉</A>、智慧果。<A 
+href="item.html#光明頂">謝遜</A>任明教教主後，要找她回去當紫衫龍王佈聖火陣。 
+</P>
+<H4><A name=思過崖></A>思過崖(187,301)</H4>
+<P>帶<A 
+href="char.html#令狐沖">令狐沖</A>見風清揚，得<A 
+href="skill.html#劍法">獨孤九劍</A>。令狐沖資質+10、武力+5，主角資質+5。 
+</P>
+<H4><A name=薛慕華居></A>薛慕華居(192,260)</H4>
+<P><A href="item.html#擂鼓山">七寶指環</A>可以招募<A 
+href="char.html#薛慕華">薛慕華</A>，加入得<A 
+href="drug.html#醫書">子午真灸經</A>、藥材、九轉熊蛇丸、智慧果、天心解毒丹、玉真散、三黃寶臘丹。 
+</P>
+<H4><A name=武道大會></A>武道大會(192,295)</H4>
+<P>持<A 
+href="item.html#主角居">武林帖</A>進場，每三場休息一次，連續單挑。得<A 
+href="item.html#霹靂堂">神杖</A>。 </P>
+<H4><A name=泰山派></A>泰山派(193,139)</H4>
+<P>天門[272]。得<A 
+href="skill.html#劍法">泰山十八盤</A>、<A 
+href="item.html#衡山派">金盆洗手請帖</A>、藥材、飛刀、智慧果、玉真散、銀兩。 
+</P>
+<H4><A name=華山派></A>華山派(193,303)</H4>
+<P>見岳不群，得藍鑰匙，開箱得<A 
+href="skill.html#內功">紫霞秘笈</A>。得玉真散、智慧果、菩提子、<A 
+href="item.html#北丑居">金鑰匙</A>。 </P>
+<H4><A name=金蛇山洞></A>金蛇山洞(194,292)</H4>
+<P><A href="item.html#浡泥島">金蛇錐</A>、<A 
+href="skill.html#劍法">金蛇秘笈</A>、<A 
+href="item.html#浡泥島">金蛇劍</A>。洞內有硝石。 </P>
+<H4><A name=高昇客棧></A>高昇客棧(199,401)</H4>
+<P><A href="char.html#段譽">段譽</A>加入，得<A 
+href="skill.html#劍法">六脈神劍譜</A>。<A 
+href="item.html#無量山">無量山</A>自助旅遊。 </P>
+<H4><A name=平一指居></A>平一指居(215,196)</H4>
+<P><A 
+href="char.html#平一指">平一指</A>[110]。殺<A 
+href="char.html#田伯光">田伯光</A>後可以招募，加入得<A 
+href="drug.html#醫書">華佗內昭圖</A>、藥材、無常丹、三黃寶臘丹、回陽五龍膏、天香斷續膏、銀兩、藥材、智慧果。也可以帶田伯光殺平一指。 
+</P>
+<H4><A name=丐幫></A>丐幫(215,259)</H4>
+<P>單挑喬峰[440]得<A 
+href="book.html#bookd">天龍八部</A>。單挑<A 
+href="char.html#慕容復">慕容復</A>後，<A 
+href="char.html#段譽">段譽</A>、<A 
+href="char.html#王語嫣">王語嫣</A>至<A 
+href="item.html#無量山">無量山洞</A>。也可以和慕容復帶<A 
+href="item.html#少林寺">帶頭大哥書信</A>逼走喬峰得書。 
+</P>
+<H4><A name=峨嵋派></A>峨嵋派(216,408)</H4>
+<P><A 
+href="item.html#光明頂">光明頂</A>之後單挑滅絕[260]可得倚天劍。滅絕自殺。 
+</P>
+<H4><A name=悅來客棧></A>悅來客棧(221,286)</H4>
+<P>向店小二買燒刀子，請<A 
+href="char.html#令狐沖">令狐沖</A>喝。再問店小二即可進入<A 
+href='item.html#梅莊"'>梅莊</A>。招募令狐沖需要<A 
+href="item.html#梅莊">梨花酒</A>和<A 
+href="item.html#白駝山">翡翠杯</A>。加入得玉真散。 </P>
+<H4><A name=苗人鳳居></A>苗人鳳居(223,187)</H4>
+<P>苗人鳳[380]。<A 
+href="item.html#藥王莊">治好苗人鳳的眼睛</A>得<A 
+href="item.html#闖王寶藏">闖王寶藏圖</A>、智慧果。<A 
+href="char.html#胡斐">胡斐</A>單挑苗人鳳得<A 
+href="book.html#booka">飛狐外傳</A>、冷月寶刀。 
+</P>
+<H4><A name=武當山></A>武當山(226,349)</H4>
+<P>張三丰[485]。一敗得<A 
+href="skill.html#輕功">梯雲縱心法</A>，二敗得<A 
+href="skill.html#拳掌">太極拳經</A>，三敗得<A 
+href="skill.html#劍法">太極劍法</A>。得天心解毒丹、三黃保臘丹、真武劍。 
+</P>
+<H4><A name=蝴蝶谷></A>蝴蝶谷(238,219)</H4>
+<P><A href="item.html#靈蛇島">靈蛇島</A>救<A 
+href="char.html#王難姑">王難姑</A>後可進入。<A 
+href="char.html#胡青牛">胡青牛</A>加入得<A 
+href="drug.html#醫書">胡青牛醫書</A>、王難姑加入得<A 
+href="drug.html#醫書">毒經</A>。得藥材、智慧果、精氣丸、玉真散、黑玉斷續膏、銀兩、牛黃血竭丹、<A 
+href="item.html#破廟">鐵鏟</A>。 </P>
+<H4><A name=嵩山派></A>嵩山派(242,293)</H4>
+<P>拜會過其他五獄劍派之後就可以到嵩山參加併派大會。主角或<A 
+href="char.html#令狐沖">令狐沖</A>單挑天門[272]、定閒[176]、莫大[314]、左冷禪[548]。得<A 
+href="item.html#梅莊">張旭率意帖</A>。併派大會之後可拿嵩山派練功。 
+</P>
+<H4><A name=五毒教></A>五毒教(247,424)</H4>
+<P>去過<A 
+href="item.html#神龍教">神龍教</A>後可見到<A 
+href="char.html#藍鳳凰">藍鳳凰</A>[167]。加入得五寶花蜜酒、<A 
+href="skill.html#暗器">含沙射影</A>、<A 
+href="skill.html#其他">毒龍鞭法</A>、六陽正氣丹、黃蓮解毒丸、智慧果、冰魄銀針。 
+</P>
+<H4><A name=少林寺></A>少林寺(247,300)</H4>
+<P><A 
+href="item.html#光明頂">光明頂</A>之後找玄慈可得<A 
+href="skill.html#劍法">達摩劍法</A>。帶<A 
+href="char.html#慕容復">慕容復</A>可得<A 
+href="item.html#丐幫">帶頭大哥書信</A>。佛堂蒲團下可得<A 
+href="skill.html#內功">洗髓經</A>。得藥材、銀兩、智慧果。<A 
+href="char.html#虛竹">虛竹</A>如果還沒有去過<A 
+href="item.html#擂鼓山">擂鼓山</A>，就會留在少林不再下山，無法再招募，要小心。 
+</P>
+<H4><A name=浡泥島></A>浡泥島(278,43)</H4>
+<P>使用<A href="item.html#金蛇山洞">金蛇錐</A>、<A 
+href="item.html#金蛇山洞">金蛇劍</A>得<A 
+href="book.html#bookm">碧血劍</A>。<A 
+href="char.html#袁承志">袁承志</A>加入得朱睛冰蟾、<A 
+href="skill.html#輕功">神行百變</A>、白雲熊膽丸。 </P>
+<H4><A name=海邊小屋></A>海邊小屋(286,157)</H4>
+<P>主角和林師傅對話可增加資質。帶<A 
+href="item.html#星宿海">羊羔坐臀</A>、<A 
+href="item.html#萬鱷島">小牛腰子</A>、<A 
+href="item.html#靈蛇島">獐腿肉</A>、<A 
+href="item.html#雲鶴崖">兔肉</A>、<A 
+href="item.html#成崑居">小豬耳朵</A>，可得<A 
+href="item.html#洪七公居">玉笛誰家聽落梅</A>。 </P>
+<H4><A name=程瑛居></A>程瑛居(295,422)</H4>
+<P><A 
+href="char.html#程瑛">程瑛</A>加入得九轉靈蛇丸、九花玉露丸、銀兩、智慧果。 
+</P>
+<H4><A name=鐵掌山></A>鐵掌山(302,343)</H4>
+<P>裘千仞[620]。得<A 
+href="skill.html#拳掌">鐵掌拳譜</A>、銀兩、智慧果、藥材、菩提子、人蔘。從右邊的小路進去可以得到<A 
+href="item.html#燕子塢">大燕國皇帝世系圖表</A>。 </P>
+<H4><A name=黑龍潭></A>黑龍潭(304,351)</H4>
+<P>帶<A 
+href="char.html#程瑛">程瑛</A>進來，見瑛姑得<A 
+href="item.html#一燈居">手帕</A>。給<A 
+href="item.html#一燈居">一燈</A>看過手帕之後再回來找瑛姑，再去找<A 
+href="item.html#百花谷">周伯通</A>。再回黑龍潭，得知<A 
+href="item.html#桃花島">桃花島</A>入口。 </P>
+<H4><A name=燕子塢></A>燕子塢(308,197)</H4>
+<P><A href="char.html#段譽">段譽</A>見過<A 
+href="item.html#無量山">神仙姊姊</A>後才可以進來。段譽見到<A 
+href="char.html#王語嫣">王語嫣</A>就會離隊。給<A 
+href="char.html#慕容復">慕容復</A>看<A 
+href="item.html#絕情谷">大燕國玉璽</A>得紫鑰匙，開箱得<A 
+href="item.html#梅莊">劉仲甫嘔血棋譜</A>。給他<A 
+href="item.html#鐵掌山">大燕國皇帝世系圖</A>後可以招募。加入得精氣丸、三黃寶臘丹、田七鯊膽散、天心解毒丹、<A 
+href="skill.html#拳掌">玄冥神掌</A>。 </P>
+<H4><A name=一燈居></A>一燈居(314,370)</H4>
+<P>給一燈看<A 
+href="item.html#黑龍潭">手帕</A>，或直接殺他。後者則失去學<A 
+href="skill.html#綜合">左右互搏</A>的機會。 </P>
+<H4><A name=藥王莊></A>藥王莊(323,318)</H4>
+<P>摘門口的一朵藍花後進去找<A 
+href="char.html#程靈素">程靈素</A>。拿<A 
+href="item.html#閻基居">七心海棠</A>作<A 
+href="item.html#苗人鳳居">苗人鳳的解藥</A>。隊伍中若有<A 
+href="char.html#胡斐">胡斐</A>即可招募之。加入得<A 
+href="drug.html#醫書">藥王神篇</A>、藥材、生生造化丹、天心解毒丹、黃蓮解毒丸、回陽五龍膏、牛黃血竭丹、六陽正氣丹、智慧果。 
+</P>
+<H4><A name=天寧寺></A>天寧寺(329,237)</H4>
+<P><A 
+href="item.html#北丑居">唐詩選輯泡水</A>後再來。大打一場之後在佛像後面拿<A 
+href="book.html#bookc">連城訣</A>。 </P>
+<H4><A name=梅莊></A>梅莊(330,196)</H4>
+<P>和<A 
+href="item.html#悅來客棧">悅來客棧</A>的店小二講過話才能進來。拿<A 
+href="item.html#福威鏢局">谿山行旅圖</A>單挑丹青生[272]得<A 
+href="item.html#悅來客棧">梨花酒</A>。拿<A 
+href="item.html#嵩山派">張旭率意帖</A>單挑禿筆翁[262]、拿<A 
+href="item.html#燕子塢">劉仲甫嘔血棋譜</A>單挑黑白子[500]、拿<A 
+href="item.html#破廟">廣陵散</A>單挑黃鐘公[434]。出莊再進來找黑白子拿紅鑰匙，進地道遇任我行，得<A 
+href="skill.html#吸內力">吸星大法</A>、<A 
+href="item.html#黑木崖">黑木令牌</A>。出地道再和四莊主打一場。 
+</P>
+<H4><A name=衡山派></A>衡山派(335,376)</H4>
+<P>可用<A 
+href="item.html#泰山派">金盆洗手請帖</A>入山。莫大[314]。得<A 
+href="skill.html#劍法">迴峰落雁劍譜</A>、人蔘、智慧果、小還丹、飛刀。 
+</P>
+<H4><A name=南賢居></A>南賢居(338,325)</H4>
+<P>照鏡子可知道德，得羅盤。 </P>
+<H4><A name=桃花島></A>桃花島(341,138)</H4>
+<P><A 
+href="item.html#黑龍潭">瑛姑</A>告之入口後才進得來。得<A 
+href="book.html#booke">射鵰英雄傳</A>、九花玉露丸、生生造化丹、無常丹、田七鯊膽散、智慧果。 
+</P>
+<H4><A name=主角居></A>主角居(357,235)</H4>
+<P>得精氣丸、人蔘、智慧果、黃蓮解毒丸、銀兩、銀兩、小還丹。<A 
+href="book.html">取得十四部書</A>，聲望大於200 
+之後回家可以拿到<A 
+href="item.html#武道大會">武林帖</A>。拿到武林帖之後隊伍就會解散。 
+</P>
+<H4><A name=河洛客棧></A>河洛客棧(358,229)</H4>
+<P><A href="faq.html#韋小寶">韋小寶</A>初登場。 
+</P>
+<H4><A name=唐詩山洞></A>唐詩山洞(364,279)</H4>
+<P>得<A 
+href="item.html#北丑居">唐詩選輯</A>。洞內有硝石。 </P>
+<H4><A name=福威鏢局></A>福威鏢局(369,258)</H4>
+<P>勝<A href="char.html#林平之">林平之</A>得<A 
+href="skill.html#劍法">松風劍譜</A>、銀兩、智慧果、<A 
+href="item.html#梅莊">谿山行旅圖</A>、菩提子。打完<A 
+href="item.html#青城派">青城派</A>之後，轉告林震南遺言，出鏢局再進來即可招募林平之。林平之學會<A 
+href="skill.html#劍法">辟邪劍法</A>。 </P>
+<H4><A name=田伯光居></A>田伯光居(385,306)</H4>
+<P>殺<A href="char.html#田伯光">田伯光</A>可招募<A 
+href="char.html#平一指">平一指</A>。招募田伯光可得<A 
+href="skill.html#刀法">狂風刀法</A>、金錢鏢、人蔘。得<A 
+href="item.html#鴛鴦刀山洞">鴛刀</A>、黑血神針。 </P>
+<H4><A name=閻基居></A>閻基居(396,374)</H4>
+<P>閻基[116]。第一次殺他可以得到<A 
+href="item.html#胡斐居">兩頁刀譜</A>、天王保命丹、藥材。帶<A 
+href="char.html#胡斐">胡斐</A>殺第二次可以得到<A 
+href="item.html#藥王莊">七心海棠</A>。 </P>
+<H4><A name=霹靂堂></A>霹靂堂(409,217)</H4>
+<P>見孔八拉得<A 
+href="skill.html#暗器">霹靂秘笈</A>、霹靂彈、黃鑰匙。用黃鑰匙得皮衣、檳榔。出示<A 
+href="item.html#武道大會">神杖</A>得綠鑰匙，下去放書，打十大惡人或十大善人結束遊戲。 
+</P>
+<H4><A name=鴛鴦刀山洞></A>鴛鴦刀山洞(425,38)</H4>
+<P>右邊插<A 
+href="item.html#田伯光居">鴛刀</A>，左邊插<A 
+href="item.html#闖王寶藏">鴦刀</A>，開門得<A 
+href="book.html#bookn">鴛鴦刀</A>、千年人蔘。洞內有硝石。 
+</P>
+<H4><A name=萬鱷島></A>萬鱷島(432,125)</H4>
+<P>打一堆鱷魚，打<A 
+href="char.html#岳老三">岳老三</A>[371]。收編可得鱷皮護甲、人蔘、田七鯊膽散、毒菱笈、<A 
+href="item.html#山洞">銅鑰匙</A>、<A 
+href="item.html#海邊小屋">小牛腰子</A>、智慧果。 </P>
+<H4><A name=俠客島></A>俠客島(455,328)</H4>
+<P>帶<A href="item.html#凌霄城">賞善罰惡令</A>和<A 
+href="char.html#石破天">石破天</A>進去，得臘八粥、<A 
+href="book.html#bookk">俠客行</A>、<A 
+href="skill.html#拳掌">太玄經</A>。石破天學會太玄經，武力+10。 
+</P></DIV>
+
+        <div class="copyright">
+            <p>資料來源：雙子貓的世界</p>
+        </div>
+    </div>
+</body>
+</html>

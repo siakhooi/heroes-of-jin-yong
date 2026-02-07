@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地图坐标</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Noto Serif SC', serif;
+            color: #e0e0e0;
+            line-height: 2;
+            font-size: 1.05rem;
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+        }
+
+        /* Navigation */
+        .nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(233, 69, 96, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .nav a {
+            color: #e94560;
+            text-decoration: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: rgba(233, 69, 96, 0.2);
+        }
+
+        /* Title section */
+        .title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .title h2 {
+            font-family: 'Ma Shan Zheng', cursive;
+            font-size: 2.8rem;
+            color: #e94560;
+            text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            margin-bottom: 1.2rem;
+        }
+
+        .title p {
+            color: #bbb;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .title p a {
+            color: #ff8a8a;
+            text-decoration: none;
+            padding: 0.2rem 0.4rem;
+            margin: 0.1rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .title p a:hover {
+            color: #fff;
+            border-bottom-color: #e94560;
+        }
+
+        .title .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .title hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e94560, transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* Content */
+        .content {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            line-height: 2.2;
+        }
+
+        .content h3, .content h4 {
+            color: #e94560;
+            margin: 2rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .content h3 {
+            font-size: 1.4rem;
+        }
+
+        .content h4 {
+            font-size: 1.2rem;
+        }
+
+        .content a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .content a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        .content b, .content strong {
+            color: #ff8a8a;
+        }
+
+        /* Lists in content */
+        .content ul, .content ol {
+            margin: 1rem 0 1.5rem 2rem;
+            line-height: 2.2;
+        }
+
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+
+        /* Tables */
+        .content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 1rem;
+        }
+
+        .content th, .content td {
+            padding: 1rem;
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            text-align: left;
+        }
+
+        .content th {
+            background: rgba(233, 69, 96, 0.2);
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .content tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Menu/List sections */
+        .menu {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu h4 {
+            color: #e94560;
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+        }
+
+        .menu h4:first-child {
+            margin-top: 0;
+        }
+
+        .menu p {
+            margin-bottom: 1.5rem;
+            padding-left: 1.2rem;
+            line-height: 2.2;
+            text-align: justify;
+        }
+
+        .menu a {
+            color: #6ecbff;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+
+        .menu a:hover {
+            background: rgba(110, 203, 255, 0.2);
+            color: #fff;
+        }
+
+        /* Footer */
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(233, 69, 96, 0.2);
+            margin-top: 1rem;
+        }
+
+        .copyright a {
+            color: #e94560;
+            text-decoration: none;
+        }
+
+        .copyright a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+            .content, .menu {
+                padding: 1.5rem;
+            }
+            .title h2 {
+                font-size: 2rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="index.html">首頁</a>
+            <a href="jy-start.htm">游戏指点</a>
+            <a href="jy-faq.htm">问题解答</a>
+            <a href="jy-strategy.htm">游戏攻略</a>
+            <a href="jy-location.htm">地图坐标</a>
+            <a href="jy-style.htm">修炼武功</a>
+            <a href="jy-item.htm">获得物品</a>
+            <a href="../index.html">← 返回首頁</a>
+        </div>
+        <div class="content" style="text-align: center; margin-bottom: 2rem;">
+            <a href="jyyxdt.jpg" target="_blank" style="color: #e94560; font-size: 1.2rem; font-weight: bold;">📍 点击查看游戏地图</a>
+        </div>
+        <TABLE width="100%" border=0>
+  <TBODY>
+  <TR>
+    <TD>白驼山(141,433)</TD>
+    <TD>百花谷(160,271)</TD>
+    <TD>北丑居(051,109)</TD></TR>
+  <TR>
+    <TD>冰火岛(102,031)</TD>
+    <TD>渤泥岛(274,034)</TD>
+    <TD>成昆居(019,249)</TD></TR>
+  <TR>
+    <TD>程瑛居(295,422)</TD>
+    <TD>重阳宫(145,217)</TD>
+    <TD>大轮寺(114,297)</TD></TR>
+  <TR>
+    <TD>峨嵋派(215,408)</TD>
+    <TD>福威镖局(369,258)</TD>
+    <TD>光明顶(068,397)</TD></TR>
+  <TR>
+    <TD>高升客栈(198,401)</TD>
+    <TD>古墓(144,218)</TD>
+    <TD>丐帮(229,256)</TD></TR>
+  <TR>
+    <TD>海边小屋(286,157)</TD>
+    <TD>河洛客栈(359,229)</TD>
+    <TD>黑龙潭(309,351)</TD></TR>
+  <TR>
+    <TD>黑木崖(118,178)</TD>
+    <TD>衡山派(355,376)</TD>
+    <TD>恒山派(112,215)</TD></TR>
+  <TR>
+    <TD>洪七公居(169,210)</TD>
+    <TD>胡斐居(086,94)</TD>
+    <TD>蝴蝶谷(238,219)</TD></TR>
+  <TR>
+    <TD>华山派(193,302)</TD>
+    <TD>回族部落(120,343)</TD>
+    <TD>金轮寺(103,397)</TD></TR>
+  <TR>
+    <TD>绝情谷(133,270)</TD>
+    <TD>崆峒派(160,314)</TD>
+    <TD>昆仑山(042,420)</TD></TR>
+  <TR>
+    <TD>昆仑仙境(022,440)</TD>
+    <TD>擂鼓山(176,221)</TD>
+    <TD>凌霄城(166,404)</TD></TR>
+  <TR>
+    <TD>灵蛇岛(202,58)</TD>
+    <TD>杨过山洞(068,170)</TD>
+    <TD>霹雳堂(411,209)</TD></TR>
+  <TR>
+    <TD>明教分舵(076,363)</TD>
+    <TD>摩天崖(186,338)</TD>
+    <TD>南贤居(388,325)</TD></TR>
+  <TR>
+    <TD>苗人凤居(223,187)</TD>
+    <TD>平一指(215,196)</TD>
+    <TD>破庙(019,181)</TD></TR>
+  <TR>
+    <TD>青城派(185,370)</TD>
+    <TD>沙漠废墟(053,219)</TD>
+    <TD>少林派(247,300)</TD></TR>
+  <TR>
+    <TD>神龙教(130,100)</TD>
+    <TD>思过崖(187,301)</TD>
+    <TD>嵩山派(242,293)</TD></TR>
+  <TR>
+    <TD>泰山派(193,139)</TD>
+    <TD>桃花岛(341,138)</TD>
+    <TD>天宁寺(330,237)</TD></TR>
+  <TR>
+    <TD>田伯光居(385,307)</TD>
+    <TD>铁掌山(302,343)</TD>
+    <TD>万鳄岛(429,136)</TD></TR>
+  <TR>
+    <TD>无量山(168,426)</TD>
+    <TD>鸳鸯岛(422,029)</TD>
+    <TD>武当派(226,340)</TD></TR>
+  <TR>
+    <TD>五毒教(247,424)</TD>
+    <TD>侠客岛(435,319)</TD>
+    <TD>星宿海(132,410)</TD></TR>
+  <TR>
+    <TD>薛慕华居(192,261)</TD>
+    <TD>阎基居(396,374)</TD>
+    <TD>燕子坞(300,193)</TD></TR>
+  <TR>
+    <TD>一灯居(314,370)</TD>
+    <TD>药王庄(323,318)</TD>
+    <TD>梅庄(332,197)</TD></TR>
+  <TR>
+    <TD>冰蚕秘洞(022,429)</TD>
+    <TD>悦来客栈(221,286)</TD>
+    <TD>云鹤崖(017,015)</TD></TR>
+  <TR>
+    <TD>有间客栈(078,141)</TD>
+    <TD>藏宝洞(172,425)</TD>
+    <TD>自宅(352,233)</TD></TR>
+  <TR>
+    <TD>金蛇洞(193,293)</TD>
+    <TD>绝情谷底(131.254)</TD>
+    <TD>蜘蛛洞(075,226)</TD></TR>
+  <TR>
+    <TD>蝴蝶谷入口(226,220)</TD>
+    <TD>唐诗山洞(365.279)</TD>
+    <TD>闯王宝藏(64,52)</TD></TR>
+  <TR>
+    <TD>龙门客栈(102,374)</TD>
+    <TD>武道大会(192.295)</TD>
+    <TD><BR></TD></TR></TBODY></TABLE>
+    </div>
+</body>
+</html>

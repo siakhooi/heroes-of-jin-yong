@@ -1,0 +1,45 @@
+DIV.nav {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; FONT-WEIGHT: bold; BACKGROUND: #630; PADDING-BOTTOM: 5px; MARGIN: 0px; COLOR: #fff; BORDER-TOP-STYLE: none; PADDING-TOP: 5px; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.title HR {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 0px
+}
+.title P {
+	FONT-SIZE: smaller; MARGIN-BOTTOM: 0px
+}
+P.disclaimer {
+	MARGIN-TOP: 0px; FONT-SIZE: smaller; TEXT-INDENT: 0px; LINE-HEIGHT: 1.3em
+}
+DIV.menu {
+	MARGIN-TOP: 0px; MARGIN-LEFT: 9.5em; MARGIN-RIGHT: 9.5em
+}
+.menu H4 {
+	MARGIN-TOP: 0px; FONT-SIZE: 100%; MARGIN-BOTTOM: 0px
+}
+.menu P {
+	MARGIN-TOP: 0px; MARGIN-BOTTOM: 1em
+}
+.menu EM {
+	FONT-WEIGHT: 300; FONT-SIZE: smaller; MARGIN-LEFT: 1em; COLOR: #333; FONT-STYLE: normal
+}
+.menu UL {
+	MARGIN-TOP: 0.1em; MARGIN-LEFT: 1.5em; LINE-HEIGHT: 1.2em
+}
+.menu UL LI UL {
+	FONT-SIZE: smaller; MARGIN-BOTTOM: 1em
+}
+DIV.index {
+	MARGIN-TOP: 1em; FONT-SIZE: smaller; TEXT-ALIGN: center
+}
+DIV.slide {
+	CLEAR: both; MARGIN-TOP: auto; MARGIN-LEFT: 9em
+}
+.slide P {
+	FONT-SIZE: smaller; FLOAT: left; WIDTH: 9em; TEXT-ALIGN: center
+}
+.slide IMG {
+	MARGIN-TOP: 0.5em; MARGIN-BOTTOM: 0.5em; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.tables TD {
+	FONT-SIZE: smaller
+}
