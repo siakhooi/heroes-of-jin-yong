@@ -293,6 +293,48 @@
             margin-bottom: 2rem;
         }
 
+        /* BGM + download */
+        .audio-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(233, 69, 96, 0.25);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .audio-row audio {
+            flex: 1 1 200px;
+            max-width: 320px;
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        .audio-row .download-mp3 {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.65rem 1.25rem;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .audio-row .download-mp3:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 24px rgba(233, 69, 96, 0.35);
+        }
+
         /* Footer */
         .footer {
             position: absolute;
@@ -347,8 +389,6 @@
 
         <div class="sword-divider"></div>
 
-
-
         <div class="quote">
             <p class="quote-text">"The path of martial arts is long, but those who persevere shall reach the summit."</p>
             <p class="quote-author">— The World of Wuxia</p>
@@ -359,6 +399,11 @@
             <a href="guide2/index.html" class="nav-button">完全攻略（简体）</a>
             <a href="midi/index.html" class="nav-button">🎵 遊戲音樂</a>
             <a href="tools/index.html" class="nav-button">🛠️ 工具下載</a>
+        </div>
+
+        <div class="audio-row">
+            <audio id="bgm" src="mp3/金庸群侠传.mp3" controls autoplay playsinline preload="auto"></audio>
+            <a class="download-mp3" href="mp3/金庸群侠传.mp3" download="金庸群侠传.mp3">下載 MP3</a>
         </div>
 
         <p class="footer">© 2026 Heroes of Jin Yong. All legends await.</p>
@@ -383,6 +428,12 @@
 
         // Initialize
         createParticles();
+
+        // Autoplay (may be blocked until user gesture; controls remain available)
+        const bgm = document.getElementById('bgm');
+        if (bgm) {
+            bgm.play().catch(function () { /* policy or load */ });
+        }
     </script>
 </body>
 </html>
